@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">ECommerce</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- login strings-->
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_sign_in">Sign In</string>
+    <string name="login_forgot_password">Forgot password?</string>
+    <string name="login_sign_in_option_msg">or, sign in using social networks</string>
+    <string name="login_fb">{fa-facebook}</string>
+    <string name="login_gplus">{fa-google-plus}</string>
+    <string name="login_not_a_member_sign_up">Not a member? Sign Up</string>
+
+    <!--sign up strings -->
+    <string name="signup_firstname">First Name</string>
+    <string name="signup_lastname">Last Name</string>
+    <string name="signup_re_password">Retype Password</string>
+    <string name="signup_dob">Date of Birth</string>
+    <string name="signup_calendar">{fa-calendar}</string>
+    <string name="signup_select_gender">select your gender</string>
+    <string name="signup_agree_terms">i agree the terms of use</string>
+    <string name="signup_sign_up">sign up</string>
+    <string name="signup_already_a_member_sign_in">Already a member? Sign In</string>
+    <string name="reset_password_text">Enter your registered email id and we will email you a link to reset your password.</string>
+    <string name="reset_password_btn_text">Reset Password</string>
+</resources>

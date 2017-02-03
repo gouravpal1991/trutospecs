@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/layout_pre_login_toolbar"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/lin_signup_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="@dimen/outer_body_padding">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/edt_first_name"
+                        style="@style/NormalEditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/edt_margin"
+                        android:layout_weight="1"
+                        android:hint="@string/signup_firstname" />
+
+                    <EditText
+                        android:id="@+id/edt_last_name"
+                        style="@style/NormalEditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/edt_margin"
+                        android:layout_weight="1"
+                        android:hint="@string/signup_lastname" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/edt_signup_password"
+                    style="@style/NormalEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/login_password" />
+
+                <EditText
+                    android:id="@+id/edt_signup_re_password"
+                    style="@style/NormalEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/signup_re_password" />
+
+                <EditText
+                    android:id="@+id/edt_signup_dob"
+                    style="@style/NormalEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_date_range_black_24dp"
+                    android:hint="@string/signup_dob" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:padding="@dimen/edit_text_padding"
+                        android:text="@string/signup_select_gender"
+                        android:textAllCaps="true" />
+                </LinearLayout>
+
+                <include layout="@layout/layout_seperator" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="@dimen/edit_text_padding"
+                        android:text="@string/signup_agree_terms"
+                        android:textAllCaps="true" />
+
+                </RelativeLayout>
+
+                <Button
+                    style="@style/NormalButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/button_margin_top"
+                    android:layout_marginBottom="@dimen/button_margin_top"
+                    android:text="@string/signup_sign_up" />
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/rl_signup_seperator"
+                android:layout_below="@+id/lin_signup_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="-5dp">
+
+                <View
+
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/seperator_height"
+                    android:layout_centerInParent="true"
+                    android:background="@color/seperator" />
+
+                <TextView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/circle_bg" />
+            </RelativeLayout>
+            <TextView
+                android:layout_below="@+id/rl_signup_seperator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/new_sign_in_margin_top"
+                android:text="@string/signup_already_a_member_sign_in"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

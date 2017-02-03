@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F2F2F2</color>
+    <color name="colorPrimaryDark">#F2F2F2</color>
+    <color name="colorAccent">#868686</color>
+    <color name="seperator">#bebebe</color>
+    <color name="white">#ffffff</color>
+
+    <color name="button_start_color">#EFB961</color>
+    <color name="button_end_color">#efaf61</color>
+    <color name="button_border_color">#edad59</color>
+    <color name="social_icon_fb_bg">#48659F</color>
+    <color name="social_icon_gplus_bg">#DD4A3F</color>
+</resources>
