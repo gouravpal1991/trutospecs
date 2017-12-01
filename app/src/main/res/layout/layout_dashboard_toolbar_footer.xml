@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lin_footer_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_gravity="bottom"
+    android:contentInsetEnd="0dp"
+    android:contentInsetLeft="0dp"
+    android:contentInsetRight="0dp"
+    android:contentInsetStart="0dp"
+    android:orientation="vertical"
+    app:contentInsetEnd="0dp"
+    app:contentInsetLeft="0dp"
+    app:contentInsetRight="0dp"
+    app:contentInsetStart="0dp"
+    app:popupTheme="@style/AppTheme.PopupOverlay">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/activity_horizontal_margin_half">
+
+        <TextView
+            android:id="@+id/seperator"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/seperator_height"
+            android:background="@color/seperator" />
+
+        <LinearLayout
+android:paddingTop="@dimen/padding_small"
+android:paddingBottom="@dimen/padding_small"
+            android:id="@+id/lin_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/footer_image_size"
+                    android:layout_height="@dimen/footer_image_size"
+                    android:src="@drawable/ic_home_footer" />
+
+                <TextView
+                    android:id="@+id/txt_icon_home_footer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:drawablePadding="@dimen/padding_small"
+
+                    android:gravity="center"
+                    android:text="@string/action_home"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/footer_menu_text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/footer_image_size"
+                    android:layout_height="@dimen/footer_image_size"
+                    android:src="@drawable/ic_search_footer" />
+
+                <TextView
+                    android:id="@+id/txt_icon_seacr_footer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:drawablePadding="@dimen/padding_small"
+
+                    android:gravity="center"
+                    android:text="@string/action_search"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/footer_menu_text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/footer_image_size"
+                    android:layout_height="@dimen/footer_image_size"
+                    android:src="@drawable/ic_fav_footer" />
+
+                <TextView
+                    android:id="@+id/txt_icon_fav_footer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:drawablePadding="@dimen/padding_small"
+
+                    android:gravity="center"
+                    android:text="@string/action_favourites"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/footer_menu_text_size" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/footer_image_size"
+                    android:layout_height="@dimen/footer_image_size"
+                    android:src="@drawable/ic_cart_footer" />
+
+                <TextView
+                    android:id="@+id/txt_icon_cart_footer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:drawablePadding="@dimen/padding_small"
+
+                    android:gravity="center"
+                    android:text="@string/action_cart"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/footer_menu_text_size" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/footer_image_size"
+                    android:layout_height="@dimen/footer_image_size"
+                    android:src="@drawable/ic_account_footer" />
+
+                <TextView
+                    android:id="@+id/txt_icon_account_footer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:drawablePadding="@dimen/padding_small"
+
+                    android:gravity="center"
+                    android:text="@string/action_account"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/footer_menu_text_size" />
+            </LinearLayout>
+
+            <!--<TextView-->
+                <!--android:id="@+id/txt_icon_seach_footer"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:drawableTop="@drawable/ic_search_footer"-->
+                <!--android:gravity="center"-->
+                <!--android:text="@string/action_search"-->
+                <!--android:textAllCaps="true"-->
+                <!--android:textSize="@dimen/footer_menu_text_size" />-->
+
+
+            <!--<TextView-->
+                <!--android:id="@+id/txt_icon_fav_footer"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:drawableTop="@drawable/ic_fav_footer"-->
+                <!--android:gravity="center"-->
+                <!--android:text="@string/action_favourites"-->
+                <!--android:textAllCaps="true"-->
+                <!--android:textSize="@dimen/footer_menu_text_size" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/txt_item_in_cart"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:drawableTop="@drawable/ic_cart_footer"-->
+                <!--android:gravity="center"-->
+                <!--android:text="@string/action_cart"-->
+                <!--android:textAllCaps="true"-->
+                <!--android:textSize="@dimen/footer_menu_text_size" />-->
+
+
+            <!--<RelativeLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center">-->
+            <!--<TextView-->
+            <!--android:id="@+id/txt_icon_cart_footer"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+
+            <!--android:drawablePadding="@dimen/padding_small"-->
+            <!--android:drawableTop="@drawable/ic_cart_footer"-->
+            <!--android:gravity="center"-->
+            <!--android:text="@string/action_cart"-->
+            <!--android:textAllCaps="true" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/txt_item_in_cart_count"-->
+            <!--android:layout_width="@dimen/badge_size"-->
+            <!--android:layout_height="@dimen/badge_size"-->
+            <!--android:background="@drawable/badge_circle"-->
+            <!--android:gravity="center"-->
+            <!--android:maxLines="1"-->
+            <!--android:text="98"-->
+            <!--android:layout_marginTop="-3dp"-->
+            <!--android:layout_marginLeft="@dimen/activity_horizontal_margin"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="@dimen/badge_text_size"-->
+            <!--android:textStyle="bold" />-->
+
+            <!--</RelativeLayout>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/txt_icon_account_footer"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:drawableTop="@drawable/ic_account_footer"-->
+                <!--android:gravity="center"-->
+                <!--android:text="@string/action_account"-->
+                <!--android:textAllCaps="true"-->
+                <!--android:textSize="@dimen/footer_menu_text_size"-->
+
+                <!--/>-->
+
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.Toolbar>

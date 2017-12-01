@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/outer_body_padding">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_store_address_line_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                tools:text="159 Serangoon Garden way" />
+
+            <TextView
+                android:id="@+id/txt_store_address_line_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                tools:text="Way garden" />
+
+            <TextView
+                android:id="@+id/txt_store_address_city_and_pin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                tools:text="Singapore, 556767" />
+
+            <TextView
+                android:id="@+id/txt_store_address_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                tools:text="+65 3456 2345" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:tint="@color/colorAccent"
+                android:layout_width="@dimen/store_map_direction"
+                android:layout_height="wrap_content"
+                android:src="@drawable/map_distance"
+                android:backgroundTint="@color/button_border_color"/>
+
+            <TextView
+                android:id="@+id/txt_store_address_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="3.0 KM"/>
+
+        </LinearLayout>
+    </LinearLayout>
+<include layout="@layout/layout_seperator"/>
+</LinearLayout>

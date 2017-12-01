@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_dashboard_category_header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/dashboard_category_heading"
+    android:padding="@dimen/margin_top_10dp">
+
+    <TextView
+        android:id="@+id/txt_dashboard_item_category_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:textAllCaps="true"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        tools:text="Eye glasses" />
+
+    <ImageView
+        android:layout_width="@dimen/arrow_width"
+        android:layout_height="@dimen/arrow_height"
+        android:layout_centerVertical="true"
+
+        android:layout_toLeftOf="@+id/img_arrow_right"
+        android:adjustViewBounds="true"
+        android:src="@drawable/arrow_left"
+        />
+
+    <ImageView
+        android:id="@+id/img_arrow_right"
+        android:layout_width="@dimen/arrow_width"
+        android:layout_height="@dimen/arrow_height"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/margin_top_10dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/arrow_right" />
+</RelativeLayout>

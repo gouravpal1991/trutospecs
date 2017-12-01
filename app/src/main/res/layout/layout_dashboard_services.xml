@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/outer_body_padding"
+
+    >
+
+    <LinearLayout
+        android:id="@+id/lin_services_store_locator"
+        android:clickable="true"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:focusable="false"
+            android:clickable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/store_locator"
+            android:background="@drawable/ellipse"
+            android:scaleType="center"
+            />
+
+        <TextView
+            android:layout_marginTop="@dimen/activity_horizontal_margin_half"
+            android:focusable="false"
+            android:clickable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dashboard_serviecs_store_locator"
+            android:textAllCaps="true"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lin_services_try_at_home"
+        android:clickable="true"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:focusable="false"
+            android:clickable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/home"
+            android:background="@drawable/ellipse"
+            android:scaleType="center"
+            />
+
+        <TextView
+            android:focusable="false"
+            android:clickable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dashboard_serviecs_try_at_home"
+            android:textAllCaps="true"
+            android:layout_marginTop="@dimen/activity_horizontal_margin_half"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lin_services_home_eye_checkup"
+        android:clickable="true"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:focusable="false"
+            android:clickable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/home_eye_checkup"
+            android:background="@drawable/ellipse"
+            android:scaleType="center"
+            />
+
+        <TextView
+            android:focusable="false"
+            android:clickable="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dashboard_serviecs_home_checkup"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:layout_marginTop="@dimen/activity_horizontal_margin_half"
+            />
+    </LinearLayout>
+
+</LinearLayout>

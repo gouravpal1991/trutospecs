@@ -1,31 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ecommerce.android">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tru2specs.android">
+
+    <!-- Internet Permissions -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Permission to write to external storage -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon,android:theme">
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+        <activity
+            android:name=".signup.SignUpActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
 
-        <activity android:name=".activity.LoginActivity">
+        <activity android:name=".activity.ResetPasswordActivity" />
+
+        <activity android:name=".productslist.ProductsListActivity" />
+        <activity android:name=".address.SavedAddressesActivity" />
+
+        <activity
+            android:name=".basicinfo.BasicInfoActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+          <activity
+              android:name=".checkout.CheckoutActivity"
+              android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+
+        <activity
+            android:name=".Test"
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+
+         <activity
+             android:name=".splash.SplashActivity"
+             android:windowSoftInputMode="stateHidden|adjustResize">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+         </activity>
+        <!--<activity
+            android:name=".checkout.CheckoutActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>-->
+
+        <activity
+            android:name=".productdetails.ProductDetailsActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+
+        <activity
+            android:name=".dashboard.DashboardActivity"
+            android:label="@string/title_home"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".store.StoreActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
+
         </activity>
 
-        <activity android:name=".activity.SignUpActivity"/>
+        <activity
+            android:name=".productlisting.ProductListingActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize">
 
-        <activity android:name=".activity.ResetPasswordActivity"/>
+        </activity>
+        <activity
+            android:name=".threed.ThreeDTryOnActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+
+        </activity>
+        <activity
+            android:name=".search.SearchActivity"
+            android:windowSoftInputMode="adjustResize"></activity>
+        <activity
+            android:name=".cart.CartActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+        <activity
+            android:name=".profile.ProfileActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+        <activity
+            android:name=".address.AddressActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+
+
+        <!-- receiver to check internet connection -->
+        <receiver
+            android:name=".receiver.ConnectivityReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+
+            </intent-filter>
+        </receiver>
+
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCILfMBshGwBsoHBmIQ0liRaV381d4nlq4" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+
     </application>
 
 </manifest>

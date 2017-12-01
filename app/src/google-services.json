@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "857287145083",
+    "project_id": "firebase-tru2spec"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857287145083:android:2292ff2b1877f2c7",
+        "android_client_info": {
+          "package_name": "com.tru2specs.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "857287145083-pvi9dgllj0s3t0gqprr5hdjgea2j7i2t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tru2specs.android",
+            "certificate_hash": "56c3d0f57fb90af24f641bf1d36e88969f42ada0"
+          }
+        },
+        {
+          "client_id": "857287145083-2358apfkv9ei3uu2l1kaldtv590davng.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP2VeV5gZGD8Aopv96MaxlXCEzr2ECiWA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

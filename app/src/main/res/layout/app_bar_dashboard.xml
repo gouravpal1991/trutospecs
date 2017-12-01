@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_top"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.tru2specs.android.dashboard.DashboardActivity">
+
+    <android.support.design.widget.AppBarLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <include layout="@layout/layout_dashboard_toolbar" />
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <Button
+    android:id="@+id/btn_find_a_store"
+    style="@style/FlatNormalButton"
+    android:layout_gravity="bottom"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/find_a_store"></Button>
+    
+    <LinearLayout
+android:visibility="gone"
+        android:id="@+id/lin_footer_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/seperator"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/seperator_height"
+            android:background="@color/seperator" />
+
+        <LinearLayout
+            android:id="@+id/lin_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/padding_small"
+            android:paddingTop="@dimen/padding_small">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/footer_image_size"
+                    android:layout_height="@dimen/footer_image_size"
+                    android:src="@drawable/ic_home_footer" />
+
+                <TextView
+                    android:id="@+id/txt_icon_home_footer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:drawablePadding="@dimen/padding_small"
+
+                    android:gravity="center"
+                    android:text="@string/action_home"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/footer_menu_text_size" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/lin_dashboard_footer_search"
+                android:clickable="true"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:layout_width="@dimen/footer_image_size"
+                    android:layout_height="@dimen/footer_image_size"
+                    android:src="@drawable/ic_search_footer"
+                    android:tint="@color/colorAccent"/>
+
+                <TextView
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:id="@+id/txt_icon_seacr_footer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:drawablePadding="@dimen/padding_small"
+
+                    android:gravity="center"
+                    android:text="@string/action_search"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/footer_menu_text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lin_dashboard_footer_fav"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:tint="@color/colorAccent"
+                    android:layout_width="@dimen/footer_image_size"
+                    android:layout_height="@dimen/footer_image_size"
+                    android:src="@drawable/ic_fav_footer" />
+
+                <TextView
+                    android:id="@+id/txt_icon_fav_footer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:drawablePadding="@dimen/padding_small"
+
+                    android:gravity="center"
+                    android:text="@string/action_favourites"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/footer_menu_text_size" />
+            </LinearLayout>
+
+
+            <LinearLayout
+
+                android:id="@+id/lin_dashboard_footer_cart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:tint="@color/colorAccent"
+                    android:layout_width="@dimen/footer_image_size"
+                    android:layout_height="@dimen/footer_image_size"
+                    android:src="@drawable/ic_cart_footer" />
+
+                <TextView
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:id="@+id/txt_icon_cart_footer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:drawablePadding="@dimen/padding_small"
+
+                    android:gravity="center"
+                    android:text="@string/action_cart"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/footer_menu_text_size" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/lin_dashboard_footer_account"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:tint="@color/colorAccent"
+                    android:layout_width="@dimen/footer_image_size"
+                    android:layout_height="@dimen/footer_image_size"
+                    android:src="@drawable/ic_account_footer" />
+
+                <TextView
+                    android:id="@+id/txt_icon_account_footer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:drawablePadding="@dimen/padding_small"
+
+                    android:gravity="center"
+                    android:text="@string/action_account"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/footer_menu_text_size" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/content_dashboard" />
+</android.support.design.widget.CoordinatorLayout>

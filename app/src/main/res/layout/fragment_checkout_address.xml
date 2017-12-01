@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+
+    <Button
+        android:id="@+id/btn_chkout_add_new_address"
+        style="@style/DarkButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_signup_seperator"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin_half"
+        android:text="@string/profile_add_new_address" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_checkout_address"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btn_chkout_save_and_continue"
+        android:layout_below="@+id/btn_chkout_add_new_address"></android.support.v7.widget.RecyclerView>
+
+
+    <Button
+        android:id="@+id/btn_chkout_save_and_continue"
+        style="@style/FlatDarkButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/text_save_and_continue" />
+
+</RelativeLayout>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_pre_login_toolbar" />
+
+        <include layout="@layout/layout_seperator" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:fillViewport="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/lin_signup_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/outer_body_padding">
+
+                    <EditText
+                        android:id="@+id/edt_address_name"
+                        style="@style/NormalEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/edt_margin"
+
+                        android:hint="@string/signup_firstname" />
+
+                    <EditText
+                        android:id="@+id/edt_address_line_1"
+                        style="@style/NormalEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/adress_address_line_1" />
+
+                    <EditText
+                        android:id="@+id/edt_address_line_2"
+                        style="@style/NormalEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/adress_address_line_2" />
+
+                    <EditText
+                        android:id="@+id/edt_landmark"
+                        style="@style/NormalEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/address_lankdmark" />
+
+                    <EditText
+                        android:id="@+id/edt_address_mobile"
+                        style="@style/NormalEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/address_mobile"
+                        android:inputType="phone"/>
+
+                    <EditText
+                        android:id="@+id/edt_address_alternate_mobile"
+                        style="@style/NormalEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/address_alt_mobile"
+                        android:inputType="phone"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/edt_address_city"
+                            style="@style/NormalEditText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/edt_margin"
+                            android:layout_weight="1"
+                            android:hint="@string/address_city" />
+
+                        <EditText
+                            android:id="@+id/edt_address_state"
+                            style="@style/NormalEditText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/edt_margin"
+                            android:layout_weight="1"
+                            android:hint="@string/address_state" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/edt_address_zipcode"
+                            style="@style/NormalEditText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/edt_margin"
+                            android:layout_weight="1"
+                            android:hint="@string/address_zip_code" />
+
+                        <EditText
+                            android:id="@+id/edt_address_country"
+                            style="@style/NormalEditText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/edt_margin"
+                            android:layout_weight="1"
+                            android:hint="@string/address_country" />
+                    </LinearLayout>
+
+                    <CheckBox
+                        android:id="@+id/chk_address_mark_as_default"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="-5dp"
+                        android:layout_marginTop="@dimen/checkbox_margin"
+                        android:text="@string/adress_default"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorAccent" />
+
+
+                    <Button
+                        android:id="@+id/btn_address_save"
+                        style="@style/NormalButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/button_margin_top"
+                        android:layout_marginTop="@dimen/button_margin_top"
+                        android:text="@string/address_save_and_continue" />
+
+                    <Button
+                        android:id="@+id/btn_address_saved_addresses"
+                        style="@style/DarkButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/button_margin_top"
+                        android:text="@string/address_select_from_saved" />
+                </LinearLayout>
+
+
+            </RelativeLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <include layout="@layout/layout_progress" />
+
+</RelativeLayout>

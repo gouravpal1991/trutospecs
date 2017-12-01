@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/secondary_color"
+    app:contentInsetLeft="0dp"
+    app:contentInsetStart="0dp"
+    app:contentInsetStartWithNavigation="0dp"
+    app:popupTheme="@style/AppTheme.PopupOverlay">
+
+
+    <ImageView
+            android:id="@+id/img_search"
+        android:layout_width="@dimen/toolbar_icon_width"
+        android:layout_height="@dimen/toolbar_icon_width"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_toLeftOf="@+id/img_cart"
+        android:scaleType="fitXY"
+        android:src="@drawable/search" />
+    <ImageView
+
+        android:id="@+id/txt_title_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/new_logo"
+
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_main_logo"
+        android:textStyle="bold|italic" />
+    <RelativeLayout
+        android:gravity="right"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+
+
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_centerVertical="true">
+         <TextView
+                android:id="@+id/txt_title_screen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/img_back"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:text="@string/app_name"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_main_logo"
+                android:visibility="gone" />
+
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/img_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:scaleType="center"
+                android:src="@drawable/ic_shopping_cart_white_24dp" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/txt_item_in_cart_count"
+                android:layout_width="@dimen/badge_size"
+                android:layout_height="@dimen/badge_size"
+                android:layout_alignBaseline="@+id/img_cart"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/activity_horizontal_margin_half"
+                android:layout_marginTop="@dimen/badge_margin_top"
+                android:background="@drawable/badge_circle"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="98"
+                android:textColor="@color/white"
+                android:textSize="@dimen/badge_text_size"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/img_fav"
+                android:layout_width="@dimen/toolbar_icon_width"
+                android:layout_height="@dimen/toolbar_icon_height"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_toLeftOf="@+id/img_cart"
+                android:scaleType="fitXY"
+                android:src="@drawable/favouriate" />
+
+            <ImageView
+                android:id="@+id/img_bag"
+                android:layout_width="@dimen/toolbar_bag_width"
+                android:layout_height="@dimen/toolbar_icon_height"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_toLeftOf="@+id/img_cart"
+                android:scaleType="fitXY"
+                android:src="@drawable/cart" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/img_store"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_toLeftOf="@+id/img_fav"
+                android:scaleType="center"
+                android:src="@drawable/ic_store_white_24dp" />
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.v7.widget.Toolbar>
+

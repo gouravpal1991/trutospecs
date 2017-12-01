@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/cart_app_bar"
+    tools:context=".cart.CartActivity"
+
+    >
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_above="@+id/rl_cart_footer"
+
+        android:id="@+id/rv_cart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+
+    <LinearLayout
+
+        android:id="@+id/rl_cart_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:orientation="vertical"
+        >
+<View
+    android:layout_width="match_parent"
+    android:layout_height="5dp"/>
+        <include layout="@layout/layout_rl_sperator" />
+
+        <Button
+            android:id="@+id/btn_proceed_to_checkout"
+            style="@style/DarkButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/activity_horizontal_margin_half"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:text="@string/cart_checkout" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/txt_cart_order_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/activity_horizontal_margin_half"
+            android:text="$1400.98"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <include layout="@layout/layout_no_item" />
+</RelativeLayout>

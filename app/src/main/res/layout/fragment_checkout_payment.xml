@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/outer_body_padding_xlarge"
+            android:paddingRight="@dimen/outer_body_padding_xlarge"
+            android:paddingTop="@dimen/outer_body_padding"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/checkout_card_details"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/checkout_enter_card_detail_msg"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:background="@drawable/bordered_rectangle"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.4"
+                        android:background="@drawable/gray_bg"
+                        android:padding="@dimen/activity_horizontal_margin_half"
+                        android:text="@string/checkout_card_no"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:maxLength="19"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/activity_horizontal_margin_half"
+                        android:paddingRight="@dimen/activity_horizontal_margin_half"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:background="@drawable/bordered_rectangle"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.4"
+                        android:background="@drawable/gray_bg"
+                        android:padding="@dimen/activity_horizontal_margin_half"
+                        android:text="@string/checkout_expiry"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:paddingLeft="@dimen/activity_horizontal_margin_half"
+                        android:paddingRight="@dimen/activity_horizontal_margin_half"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bordered_rectangle"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.4"
+                        android:background="@drawable/gray_bg"
+                        android:padding="@dimen/activity_horizontal_margin_half"
+                        android:text="@string/checkout_card_cvv"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:inputType="numberPassword"
+                        android:maxLength="3"
+                        android:paddingLeft="@dimen/activity_horizontal_margin_half"
+                        android:paddingRight="@dimen/activity_horizontal_margin_half"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/shaded_bg"
+            android:orientation="vertical">
+
+            <include layout="@layout/layout_seperator" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/btn_pay_now"
+                android:paddingLeft="@dimen/outer_body_padding_xlarge"
+                android:paddingRight="@dimen/outer_body_padding_xlarge"
+                android:paddingTop="@dimen/activity_horizontal_margin"
+                android:text="SHIP to"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/black" />
+
+
+            <TextView
+                android:id="@+id/txt_checkout_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/btn_pay_now"
+
+                android:drawableRight="@drawable/edit_address"
+
+                android:paddingLeft="@dimen/outer_body_padding_xlarge"
+                android:paddingRight="@dimen/outer_body_padding_xlarge"
+                android:text="159 serangoon Garden Way\nSingapore, 556056\n+65 xxxx xxxx"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_pay_now"
+                style="@style/FlatNormalButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:text="@string/checkout_pay_now" />
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

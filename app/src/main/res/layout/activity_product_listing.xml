@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_pre_login_toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rl_footer"
+        android:layout_below="@+id/pre_login_toolbar"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/product_listing_banner_height"
+            android:background="@color/product_lsiting_banner"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_product_listing_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/product_listing_text"
+                tools:text="MEN" />
+
+            <TextView
+                android:id="@+id/txt_product_listing_tagline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type something here"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/product_listing_tagline"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+        <include
+            layout="@layout/layout_product_listing_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rl_three_d_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_above="@+id/rl_footer"
+        android:layout_below="@+id/pre_login_toolbar"
+        android:orientation="vertical"></LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <include layout="@layout/layout_filter" />
+
+    </RelativeLayout>
+</RelativeLayout>

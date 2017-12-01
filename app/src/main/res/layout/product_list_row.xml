@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/light_gray"
+    android:padding="@dimen/seperator_height">
+
+    <LinearLayout
+        android:id="@+id/rl_dashboard_horizontal_item_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/margin_20"
+        android:paddingLeft="@dimen/margin_5"
+        android:paddingRight="@dimen/margin_5"
+        android:paddingTop="@dimen/margin_5">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="right"
+                android:src="@drawable/ic_fav" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="right"
+                android:src="@drawable/three_d" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_product"
+            android:layout_width="@dimen/dashboard_item_width"
+            android:layout_height="@dimen/dashboard_item_height"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_5"
+            android:clickable="false"
+            android:focusable="false"
+            android:gravity="center"
+            android:src="@drawable/bear" />
+
+        <TextView
+            android:id="@+id/txt_product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_5"
+            android:clickable="false"
+            android:focusable="false"
+            android:gravity="center"
+            android:maxLines="2"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/black"
+            android:textAllCaps="true"
+            tools:text="product name\nhere" />
+
+        <TextView
+            android:id="@+id/txt_product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clickable="false"
+            android:focusable="false"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textAllCaps="true"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/button_start_color"
+            tools:text="product name\nhere" />
+    </LinearLayout>
+</LinearLayout>

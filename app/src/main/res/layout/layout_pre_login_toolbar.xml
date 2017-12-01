@@ -1,30 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pre_login_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/title_bg"
+    app:contentInsetLeft="0dp"
+    app:contentInsetStart="0dp"
+    app:contentInsetStartWithNavigation="0dp"
+    app:popupTheme="@style/AppTheme.PopupOverlay">
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        >
-       <RelativeLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content">
+        android:layout_height="wrap_content">
 
-           <ImageView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:src="@drawable/ic_arrow_back_black_24dp"
-               android:padding="@dimen/toolbar_back_padding"/>
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/img_back"
+            android:padding="@dimen/activity_horizontal_margin_half"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back_white_24dp" />
 
-           <TextView
-               style="@style/PreLoginToolbar"
-               android:id="@+id/txt_pre_login_toolbar_title"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_centerInParent="true"
-               android:text="@string/app_name"/>
-       </RelativeLayout>
-        </android.support.v7.widget.Toolbar>
-</LinearLayout>
+        <TextView
+            android:id="@+id/txt_pre_login_toolbar_title"
+            style="@style/PreLoginToolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/padding_left"
+            android:layout_toRightOf="@+id/img_back"
+           android:drawableLeft="@drawable/toolbar_logo"
+            android:textAllCaps="true"
+            tools:text="signin"
+            android:textColor="@color/colorPrimaryDark"
+            android:gravity="center"
+            />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.Toolbar>

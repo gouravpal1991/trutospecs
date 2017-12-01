@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/txt_checkout_tab_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+       android:layout_margin="@dimen/activity_horizontal_margin_half"
+        android:text="@string/checkout_address"
+        android:textAllCaps="true"
+        android:textColor="@color/black" />
+
+    <RelativeLayout
+
+        android:id="@+id/rl_signup_seperator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_checkout_address_title"
+        android:layout_gravity="center"
+       >
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/seperator_height"
+            android:layout_centerInParent="true"
+            android:background="@color/seperator" />
+
+        <TextView
+            android:id="@+id/tab_indicator"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/dark_circle"
+            android:gravity="center"
+            android:padding="@dimen/padding_small" />
+    </RelativeLayout>
+</LinearLayout>

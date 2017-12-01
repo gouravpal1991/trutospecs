@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <RadioButton
+            android:id="@+id/rb_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/img_edit"
+            android:layout_toRightOf="@+id/rb_default"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin_half"
+            android:paddingRight="@dimen/activity_horizontal_margin_half">
+
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingBottom="@dimen/activity_horizontal_margin_half"
+                android:text="Gourav Pal"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:id="@+id/txt_address_lines"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textAllCaps="true"
+                tools:text="Flat No A12, Baner Road, Baner, Near Aker Solutions,Baner, PUne, maharashtra -  411045" />
+
+
+            <TextView
+                android:id="@+id/txt_contact_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="@dimen/activity_horizontal_margin_half"
+                android:textAllCaps="true"
+                tools:text="8237166069" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_border_color_black_24dp" />
+    </RelativeLayout>
+
+    <include layout="@layout/layout_seperator" />
+</LinearLayout>

@@ -6,7 +6,7 @@
             <gradient android:startColor="@color/button_start_color"
                 android:endColor="@color/button_end_color"
                 android:angle="270" />
-            <corners android:radius="@dimen/button_radius" />
+            <!--<corners android:radius="@dimen/button_radius" />-->
             <stroke android:width="2px"
                 android:color="@color/button_border_color" />
         </shape>
@@ -18,7 +18,7 @@
             <gradient android:startColor="@color/button_start_color"
                 android:endColor="@color/button_end_color"
                 android:angle="270" />
-            <corners android:radius="@dimen/button_radius" />
+            <!--<corners android:radius="@dimen/button_radius" />-->
             <stroke android:width="2px"
                 android:color="@color/button_border_color" />
         </shape>
@@ -29,7 +29,7 @@
             <gradient android:startColor="@color/button_end_color"
                 android:endColor="@color/button_start_color"
                 android:angle="270" />
-            <corners android:radius="@dimen/button_radius" />
+            <!--<corners android:radius="@dimen/button_radius" />-->
             <stroke android:width="2px"
                 android:color="@color/button_border_color" />
         </shape>
@@ -40,7 +40,7 @@
             <gradient android:startColor="@color/button_end_color"
                 android:endColor="@color/button_start_color"
                 android:angle="270" />
-            <corners android:radius="@dimen/button_radius" />
+            <!--<corners android:radius="@dimen/button_radius" />-->
             <stroke android:width="2px"
                 android:color="@color/button_border_color" />
         </shape>

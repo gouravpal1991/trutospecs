@@ -1,0 +1,28 @@
+{
+  "data": {
+    "items":[{
+      "use_for":"Distance",
+      "desc1":"Seesing things far away",
+      "desc2":"(driving, signboard, hoardings etc.)",
+      "img":""
+    },
+      {
+        "use_for":"Reading",
+        "desc1":"Seesing things up close",
+        "desc2":"(books, paper, stiching etc.)",
+        "img":""
+      },
+      {
+        "use_for":"Bifocal/Progressive",
+        "desc1":"Distance & Reading",
+        "desc2":"",
+        "img":""
+      },
+      {
+        "use_for":"Zero Power",
+        "desc1":"Protection from screen radiation/ riding/ fashion",
+        "desc2":"",
+        "img":""
+      }]
+  }
+}
