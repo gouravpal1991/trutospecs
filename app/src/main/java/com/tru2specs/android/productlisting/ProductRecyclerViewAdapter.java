@@ -46,10 +46,12 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecy
         return productList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView txt_product_name;
         private TextView txt_product_price;
         private ImageView img_product;
+        private ImageView imageViewThreeD;
+        private ImageView imageViewFavorite;
 
         public ViewHolder(View view) {
             super(view);
@@ -57,7 +59,27 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecy
             txt_product_name = (TextView) view.findViewById(R.id.txt_product_name);
             txt_product_price = (TextView) view.findViewById(R.id.txt_product_price);
             img_product = (ImageView) view.findViewById(R.id.img_product);
+            imageViewThreeD = (ImageView) view.findViewById(R.id.threeDImage);
+            imageViewFavorite = (ImageView) view.findViewById(R.id.favImage);
+
+            imageViewFavorite.setOnClickListener(this);
+            imageViewThreeD.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()){
+                case R.id.threeDImage:
+                    showThree3dView();
+                    break;
+                case R.id.favImage:
+                    break;
+            }
+        }
+    }
+
+    private void showThree3dView() {
+
     }
 
 }

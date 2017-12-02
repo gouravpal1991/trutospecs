@@ -9,6 +9,7 @@
     android:padding="@dimen/outer_body_padding_large">
 
     <TextView
+        android:id="@+id/textview_no_item"
         style="@style/MediumTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

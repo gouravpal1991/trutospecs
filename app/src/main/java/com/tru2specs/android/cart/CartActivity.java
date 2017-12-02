@@ -23,11 +23,10 @@ import com.tru2specs.android.cart.listener.OnItemRemoveListener;
 import com.tru2specs.android.cart.presenter.CartPresenter;
 import com.tru2specs.android.cart.view.ICartView;
 import com.tru2specs.android.checkout.CheckoutActivity;
-import com.tru2specs.android.manager.CartManager;
 import com.tru2specs.android.objects.responses.productlisting.Product;
+import com.tru2specs.android.storage.database.DatabaseManager;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -159,8 +158,14 @@ public class CartActivity extends BaseActivity implements ICartView, OnItemRemov
 
     @Override
     public void onRemove(String productId) {
-        CartManager.getCartInstance(CartActivity.this).deleteItemInCart(productId);
+
+        /*CartManager.getCartInstance(CartActivity.this).deleteItemInCart(productId);
         if (CartManager.getCartInstance(CartActivity.this).getmCartItems().size() <= 0) {
+            showNoItemInCartLayout();
+        } */
+
+        DatabaseManager.getInstance(this).deleteCartProduct(productId);
+        if(DatabaseManager.getInstance(this).getCartProducts().size() <= 0) {
             showNoItemInCartLayout();
         }
     }

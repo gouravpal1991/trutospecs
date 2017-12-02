@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
+import com.tru2specs.android.MyApplication;
 import com.tru2specs.android.address.listener.OnAddressSaveListener;
 import com.tru2specs.android.address.model.AddressInteractor;
 import com.tru2specs.android.address.view.IAddressView;
@@ -93,6 +94,7 @@ public class AddressPresenter implements IAddressPresenter, OnAddressSaveListene
 
         if (validateFields(request)) {
             mInteractor.onSubmitAddress(this, request);
+            MyApplication.getInstance().saveUserAddress(request);
             return;
         }
         mView.hideProgressView();

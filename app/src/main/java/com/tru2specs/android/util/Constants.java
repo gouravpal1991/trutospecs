@@ -19,7 +19,8 @@ public class Constants {
     public static final String SOCIAL_MEDIA_TYPE_FACEBOOK = "F";
     public static final String SOCIAL_MEDIA_LOGIN_TRUE = "1";
     public static final String SOCIAL_MEDIA_LOGIN_FALSE = "0";
-    public static final String BASE_URL = "http://13.59.52.2:8000/";
+    //public static final String BASE_URL = "http://13.59.52.2:8000/";
+    public static final String BASE_URL = "http://18.217.137.65:8000/";
     public static final String ADDRESS_ADDED_SUCCESSFULLY = "Address added successfully.";
     public static final String USER_TYPE_CUSTOMER = "Customer";
     public static final String CURRENCY = "RS ";

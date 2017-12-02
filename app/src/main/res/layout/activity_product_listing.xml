@@ -16,6 +16,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/productImageLayout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/product_listing_banner_height"
             android:background="@color/product_lsiting_banner"
@@ -50,8 +51,8 @@
     <LinearLayout
         android:id="@+id/rl_three_d_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
+        android:layout_height="320dp"
+        android:visibility="gone"
         android:layout_above="@+id/rl_footer"
         android:layout_below="@+id/pre_login_toolbar"
         android:orientation="vertical"></LinearLayout>

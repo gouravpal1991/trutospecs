@@ -3,7 +3,6 @@ package com.tru2specs.android.checkout;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.tru2specs.android.R;
 import com.tru2specs.android.base.BaseActivity;
@@ -22,8 +20,6 @@ import com.tru2specs.android.checkout.fragment.CheckoutThankyouFragment;
 import com.tru2specs.android.checkout.view.ICheckoutView;
 import com.tru2specs.android.customview.CustomViewPager;
 import com.tru2specs.android.objects.responses.savedaddresses.Address;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -189,4 +185,5 @@ public class CheckoutActivity extends BaseActivity implements ICheckoutView, Tab
     public void onTabReselected(TabLayout.Tab tab) {
 
     }
+
 }

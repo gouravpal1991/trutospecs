@@ -2,7 +2,6 @@ package com.tru2specs.android.dashboard.model;
 
 import com.tru2specs.android.dashboard.listener.OnDashboardListener;
 import com.tru2specs.android.objects.responses.dashboard.DashboardResponse;
-import com.tru2specs.android.objects.responses.store.StoreListResponse;
 import com.tru2specs.android.rest.AppClient;
 import com.tru2specs.android.util.Constants;
 

@@ -1,17 +1,11 @@
 package com.tru2specs.android.productlisting;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SwitchCompat;
 import android.view.View;
-import android.view.Window;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.superunitystudio.glasses.UnityPlayerActivity;
@@ -43,8 +37,8 @@ public class ProductListingActivityOld extends UnityPlayerActivity implements IP
 //    ImageView mStore;
     @BindView(R.id.img_back)
     ImageView mBack;
-    @BindView(R.id.sc_3d_try_on)
-    SwitchCompat m3dTrySwitch;
+   /* @BindView(R.id.sc_3d_try_on)
+    SwitchCompat m3dTrySwitch;*/
 //    @BindView(R.id.rl_three_d_view)
     LinearLayout mTryOnView;
 
@@ -68,7 +62,7 @@ public class ProductListingActivityOld extends UnityPlayerActivity implements IP
     @Override
     public void setScreenDetails() {
         setToolbar();
-        m3dTrySwitch.setOnCheckedChangeListener(this);
+       // m3dTrySwitch.setOnCheckedChangeListener(this);
     }
 
     @Override
@@ -124,7 +118,7 @@ public class ProductListingActivityOld extends UnityPlayerActivity implements IP
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         switch (buttonView.getId()){
-            case R.id.sc_3d_try_on:
+            /*case R.id.sc_3d_try_on:
                 if(isChecked){
 
                     showThree3dView();
@@ -132,7 +126,7 @@ public class ProductListingActivityOld extends UnityPlayerActivity implements IP
                 }
                 mTryOnView.setVisibility(View.GONE);
                 break;
-
+*/
         }
     }
 

@@ -1,10 +1,6 @@
 package com.tru2specs.android.threed;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -12,33 +8,25 @@ import android.widget.TextView;
 
 import com.superunitystudio.glasses.UnityPlayerActivity;
 import com.tru2specs.android.R;
-import com.unity3d.player.UnityPlayer;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.Date;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by palgour on 11/19/17.
  */
 
 public class ThreeDTryOnActivity extends UnityPlayerActivity implements View.OnClickListener {
+    LinearLayout mTryOnView;
+
     ImageView mBack;
 
     TextView mListingTitle;
     TextView mScreenTitle;
-    @BindView(R.id.rl_three_d_view)
-    LinearLayout mTryOnView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_three_d_try_on);
-        mContext = this;
+        //mContext = this;
 //        ButterKnife.bind(this);
         mBack = (ImageView) findViewById(R.id.img_back);
         mScreenTitle = (TextView) findViewById(R.id.txt_pre_login_toolbar_title);
@@ -52,14 +40,14 @@ public class ThreeDTryOnActivity extends UnityPlayerActivity implements View.OnC
     }
 
     private void showThree3dView() {
-        mUnityPlayer = new UnityPlayer(mContext);
+       /* mUnityPlayer = new UnityPlayer(mContext);
         int glesMode = mUnityPlayer.getSettings().getInt("gles_mode", 1);
         boolean trueColor8888 = false;
         mUnityPlayer.init(glesMode, trueColor8888);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         mTryOnView = (LinearLayout) findViewById(R.id.rl_three_d_view);
         mTryOnView.setVisibility(View.VISIBLE);
-        mTryOnView.addView(mUnityPlayer.getView(), 0, layoutParams);
+        mTryOnView.addView(mUnityPlayer.getView(), 0, layoutParams);*/
     }
 
     @Override

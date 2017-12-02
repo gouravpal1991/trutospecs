@@ -24,12 +24,14 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/favImage"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="right"
                 android:src="@drawable/ic_fav" />
 
             <ImageView
+                android:id="@+id/threeDImage"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="right"

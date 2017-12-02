@@ -1,1 +1,1 @@
-include ':app', ':android-maps-utils-release', ':Glasses-debug', ':ulstracker-lite'
+include ':app', ':android-maps-utils-release', ':Glasses-debug', ':ulstracker-lite', ':3D Try on-debug'

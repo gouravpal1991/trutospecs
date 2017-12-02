@@ -82,6 +82,7 @@ private Context mContext;
 
         Intent intent = new Intent(mContext, ProductDetailsActivity.class);
         intent.putExtra(ProductDetailsActivity.KEY_PRODUCT_ID,prodId);
+        intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
         mContext.startActivity(intent);
     }
 
