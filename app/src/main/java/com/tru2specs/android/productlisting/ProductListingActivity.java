@@ -1,6 +1,5 @@
 package com.tru2specs.android.productlisting;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -19,8 +18,6 @@ import com.tru2specs.android.objects.responses.product.Products;
 import com.tru2specs.android.productlisting.view.IProductListingView;
 import com.tru2specs.android.productslist.presenter.ProductListPresenter;
 import com.tru2specs.android.productslist.view.IProductListView;
-import com.tru2specs.android.threed.ThreeDTryOnActivity;
-import com.tru2specs.android.util.Constants;
 
 import java.util.List;
 
@@ -60,7 +57,11 @@ public class ProductListingActivity extends AppCompatActivity implements IProduc
 
     @BindView(R.id.sc_3d_try_on)
     SwitchCompat m3dTrySwitch;
+	@BindView(R.id.productImageLayout)
+    LinearLayout mLinearLayoutProductImage;
 
+	@BindView(R.id.rl_three_d_view)
+	LinearLayout mThreeDLayout;
     private ProductListPresenter mPresenter;
 
     @Override
@@ -139,8 +140,11 @@ public class ProductListingActivity extends AppCompatActivity implements IProduc
         switch (buttonView.getId()) {
             case R.id.sc_3d_try_on:
                 if (isChecked) {
-                    showThree3dView();
+                    showThree3dView(true);
                     return;
+                }
+                else {
+                    showThree3dView(false);
                 }
 //                mTryOnView.setVisibility(View.GONE);
                 break;
@@ -148,9 +152,28 @@ public class ProductListingActivity extends AppCompatActivity implements IProduc
         }
     }
 
-    private void showThree3dView() {
-        Intent intent = new Intent(ProductListingActivity.this, ThreeDTryOnActivity.class);
-        startActivity(intent);
+    private void showThree3dView(boolean isShow) {
+       
+	    LinearLayout dLayout = (LinearLayout) findViewById(R.id.rl_three_d_view);
+
+        if(isShow) {
+            mLinearLayoutProductImage.setVisibility(View.GONE);
+
+         /*   mUnityPlayer.requestFocus();
+            int glesMode = mUnityPlayer.getSettings().getInt("gles_mode", 1);
+            boolean trueColor8888 = false;
+            mUnityPlayer.init(glesMode, trueColor8888);
+2
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+            dLayout.setVisibility(View.VISIBLE);
+            dLayout.addView(mUnityPlayer.getView(), 0, layoutParams);
+*/
+        }
+        else {
+            dLayout.setVisibility(View.GONE);
+            mLinearLayoutProductImage.setVisibility(View.VISIBLE);
+
+        }
     }
 
     @Override

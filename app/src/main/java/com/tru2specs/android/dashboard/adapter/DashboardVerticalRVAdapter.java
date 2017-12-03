@@ -13,7 +13,6 @@ import android.widget.TextView;
 import com.tru2specs.android.R;
 import com.tru2specs.android.objects.responses.dashboard.Type;
 import com.tru2specs.android.productlisting.ProductListingActivity;
-import com.tru2specs.android.productslist.ProductsListActivity;
 
 import java.util.List;
 
@@ -55,6 +54,7 @@ public class DashboardVerticalRVAdapter extends RecyclerView.Adapter<DashboardVe
 
     private void navigateToProductListing() {
         Intent intent = new Intent(mContext, ProductListingActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         mContext.startActivity(intent);
     }
 

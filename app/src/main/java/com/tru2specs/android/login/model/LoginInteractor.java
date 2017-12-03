@@ -1,13 +1,9 @@
 package com.tru2specs.android.login.model;
 
-import android.util.Log;
-
 import com.tru2specs.android.login.listerner.OnLoginListener;
-import com.tru2specs.android.objects.User;
 import com.tru2specs.android.objects.request.LoginRequest;
 import com.tru2specs.android.objects.responses.loginSignup.Data;
 import com.tru2specs.android.objects.responses.loginSignup.LoginSignUpResponse;
-import com.tru2specs.android.rest.APIService;
 import com.tru2specs.android.rest.AppClient;
 import com.tru2specs.android.util.Constants;
 

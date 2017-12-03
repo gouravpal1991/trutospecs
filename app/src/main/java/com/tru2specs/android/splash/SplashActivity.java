@@ -14,7 +14,6 @@ import com.tru2specs.android.R;
 import com.tru2specs.android.base.BaseActivity;
 import com.tru2specs.android.basicinfo.BasicInfoActivity;
 import com.tru2specs.android.dashboard.DashboardActivity;
-import com.tru2specs.android.manager.SessionManager;
 import com.tru2specs.android.receiver.ConnectivityReceiver;
 import com.tru2specs.android.splash.view.ISplashView;
 
@@ -43,11 +42,13 @@ public class SplashActivity extends BaseActivity implements ISplashView {
 
     @Override
     public void navigateToScreen() {
-        if (new SessionManager(getApplicationContext()).isBasicInfoStored()) {
+       /* if (new SessionManager(getApplicationContext()).isBasicInfoStored()) {
             navigateToDashboard();
             return;
         }
-        navigateToBasicInfoScreen();
+        navigateToBasicInfoScreen();*/
+
+        navigateToDashboard();
     }
 
     // Method to manually check connection status

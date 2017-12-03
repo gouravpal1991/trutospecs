@@ -78,7 +78,12 @@
 
         <activity
             android:name=".productdetails.ProductDetailsActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:noHistory="true"
+            android:process=":UnityKillsMe">
+            <meta-data android:name="productdetails.ProductDetailsActivity" android:value="true" />
+            <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="false" />
+        </activity>
 
         <activity
             android:name=".dashboard.DashboardActivity"
@@ -99,7 +104,6 @@
         <activity
             android:name=".threed.ThreeDTryOnActivity"
             android:windowSoftInputMode="stateHidden|adjustResize">
-
         </activity>
         <activity
             android:name=".search.SearchActivity"
@@ -113,7 +117,9 @@
         <activity
             android:name=".address.AddressActivity"
             android:windowSoftInputMode="stateHidden|adjustResize"></activity>
-
+        <activity
+            android:name=".favorite.FavoriteActivity"
+            android:windowSoftInputMode="adjustResize"></activity>
 
         <!-- receiver to check internet connection -->
         <receiver

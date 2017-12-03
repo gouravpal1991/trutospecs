@@ -1,5 +1,4 @@
 package com.tru2specs.android.dashboard.listener;
-import com.tru2specs.android.objects.responses.dashboard.DashboardResponse;
 import com.tru2specs.android.objects.responses.dashboard.Data;
 
 /**

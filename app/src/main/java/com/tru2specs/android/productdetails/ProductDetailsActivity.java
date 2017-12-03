@@ -2,25 +2,27 @@ package com.tru2specs.android.productdetails;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,24 +30,21 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.Gson;
 import com.tru2specs.android.R;
-import com.tru2specs.android.address.presenter.AddressPresenter;
 import com.tru2specs.android.cart.CartActivity;
-import com.tru2specs.android.checkout.CheckoutActivity;
-import com.tru2specs.android.dashboard.DashboardActivity;
-import com.tru2specs.android.manager.CartManager;
-import com.tru2specs.android.objects.request.ProudctListingRequest;
 import com.tru2specs.android.objects.responses.productlisting.Data;
 import com.tru2specs.android.objects.responses.productlisting.Product;
-import com.tru2specs.android.objects.responses.productlisting.ProductListingResponse;
 import com.tru2specs.android.objects.responses.useFor.Item;
 import com.tru2specs.android.objects.responses.useFor.UseForResponse;
 import com.tru2specs.android.productdetails.adapter.UseForAdapter;
 import com.tru2specs.android.productdetails.presenter.ProductDetailsPresenter;
 import com.tru2specs.android.productdetails.view.IProducDetailsView;
-import com.tru2specs.android.productlisting.view.IProductListingView;
+import com.tru2specs.android.storage.database.DatabaseManager;
+import com.tru2specs.android.util.AppUtil;
 import com.tru2specs.android.util.Constants;
 import com.tru2specs.android.util.Helper;
+import com.unity3d.player.UnityPlayerActivity;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,8 +55,9 @@ import butterknife.ButterKnife;
  * Created by PB00471065 on 11/7/2017.
  */
 
-public class ProductDetailsActivity extends AppCompatActivity implements IProducDetailsView {
+public class ProductDetailsActivity extends UnityPlayerActivity implements IProducDetailsView {
 
+    private static final String TAG = ProductDetailsActivity.class.getSimpleName();
     public static final String KEY_PRODUCT_ID = "product_id";
     @BindView(R.id.txt_actual_amount)
     TextView mTxtActualAmount;
@@ -82,6 +82,19 @@ public class ProductDetailsActivity extends AppCompatActivity implements IProduc
     private TextView mOff;
     private ArrayList<String> mImages;
     private Button mAddToCart;
+    private ImageView mImageViewFavorite;
+
+    @BindView(R.id.toggleSwitch3D)
+    Switch mToggleSwitch3D;
+
+    @BindView(R.id.productImageLayout)
+    LinearLayout mProductImageLayout;
+
+    @BindView(R.id.img_share)
+    ImageView mImageViewShare;
+
+    @BindView(R.id.three_d_view)
+    LinearLayout mThreeDLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -99,6 +112,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements IProduc
         mMrp = (TextView) findViewById(R.id.txt_actual_amount);
         mOff = (TextView) findViewById(R.id.txt_offer);
         mAddToCart = (Button) findViewById(R.id.btn_add_to_cart);
+        mImageViewFavorite = (ImageView) findViewById(R.id.img_fav);
 
         //for line over text
         mTxtActualAmount.setPaintFlags(mTxtActualAmount.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
@@ -121,17 +135,51 @@ public class ProductDetailsActivity extends AppCompatActivity implements IProduc
                 navigateToCart();
             }
         });
+
+        mImageViewFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addToFavoriteList();
+            }
+        });
+
+        mToggleSwitch3D.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mToggleSwitch3D.isChecked()) {
+                    show3DView(true);
+                    mImageViewShare.setVisibility(View.VISIBLE);
+                }
+                else {
+                    mImageViewShare.setVisibility(View.GONE);
+                    show3DView(false);
+                }
+            }
+        });
+
+        mImageViewShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                takeScreenShotAndShare();
+            }
+        });
+
         mPresenter = new ProductDetailsPresenter(ProductDetailsActivity.this, this);
         mPresenter.attemptGetProductDetails();
+
+        AppUtil.getScreenHeight();
     }
 
     private void navigateToCheckout() {
         String productId = getProductId();
         if (!TextUtils.isEmpty(productId)) {
-            CartManager cartManager = CartManager.getCartInstance(ProductDetailsActivity.this);
+           /* CartManager cartManager = CartManager.getCartInstance(ProductDetailsActivity.this);
             if(!cartManager.getmCartItems().contains(productId)) {
                 cartManager.addItemInCart(productId);
-            }
+            }*/
+           if(!DatabaseManager.getInstance(this).getCartProducts().contains(productId)) {
+               DatabaseManager.getInstance(this).addCartProducts(productId);
+           }
         }
         Intent intent = new Intent(ProductDetailsActivity.this, CartActivity.class);
         startActivity(intent);
@@ -142,16 +190,49 @@ public class ProductDetailsActivity extends AppCompatActivity implements IProduc
 //        startActivity(intent);
         String productId = getProductId();
         if (!TextUtils.isEmpty(productId)) {
-            CartManager cartManager = CartManager.getCartInstance(ProductDetailsActivity.this);
+           /* CartManager cartManager = CartManager.getCartInstance(ProductDetailsActivity.this);
             if(cartManager.getmCartItems().contains(productId)){
                 Toast.makeText(ProductDetailsActivity.this, "Product already added to cart.", Toast.LENGTH_SHORT).show();
                 return;
             }
             cartManager.addItemInCart(productId);
+            Toast.makeText(ProductDetailsActivity.this, "Product added to cart.", Toast.LENGTH_SHORT).show();*/
+
+           DatabaseManager databaseManager = DatabaseManager.getInstance(this);
+            if(databaseManager.getCartProducts().contains(productId)) {
+                Toast.makeText(ProductDetailsActivity.this, "Product already added to cart.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            databaseManager.addCartProducts(productId);
             Toast.makeText(ProductDetailsActivity.this, "Product added to cart.", Toast.LENGTH_SHORT).show();
         }
 
     }
+	
+	 private void addToFavoriteList() {
+
+        String productId = getProductId();
+        if (!TextUtils.isEmpty(productId)) {
+           /* CartManager cartManager = CartManager.getCartInstance(ProductDetailsActivity.this);
+            if(cartManager.getmFavItems().contains(productId)){
+                Toast.makeText(ProductDetailsActivity.this, "Product already shortlisted.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            cartManager.addFavItem(productId);*/
+
+            DatabaseManager databaseManager = DatabaseManager.getInstance(this);
+            if(databaseManager.getFavouriteContactIds().contains(productId)) {
+                Toast.makeText(ProductDetailsActivity.this, "Product already shortlisted.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            databaseManager.addFavourites(productId);
+
+            mImageViewFavorite.setImageResource(R.drawable.ic_fav_selected);
+            Log.d(TAG, "shortlisted items count :" + databaseManager.getFavouriteContactIds().size());
+            Toast.makeText(ProductDetailsActivity.this, "Product added to shortlisted.", Toast.LENGTH_SHORT).show();
+        }
+    }
+	
 
     private void chooseUseFor(){
         UseForResponse useForResponse = new Gson().fromJson(Helper.loadJSONFromAsset(ProductDetailsActivity.this, "products.json"), UseForResponse.class);
@@ -217,6 +298,14 @@ public class ProductDetailsActivity extends AppCompatActivity implements IProduc
             if (!TextUtils.isEmpty(String.valueOf(product.getMRP())))
                 mMrp.setText(String.valueOf(Constants.CURRENCY + product.getMRP()));
         }
+
+       /* if(CartManager.getCartInstance(this).isFavProduct(getProductId())) {
+            mImageViewFavorite.setImageResource(R.drawable.ic_fav_selected);
+        }*/
+
+       if(DatabaseManager.getInstance(this).getFavouriteContactIds().contains(getProductId())) {
+           mImageViewFavorite.setImageResource(R.drawable.ic_fav_selected);
+       }
     }
 
     private void setImage(ImageView image, String url) {
@@ -255,6 +344,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements IProduc
         if (mBundle != null && mBundle.containsKey(KEY_PRODUCT_ID)) {
             String productId = mBundle.getString(KEY_PRODUCT_ID);
             setScreenTitle(productId);
+            Log.d(TAG, "ProductId : " + productId);
             return productId;
         }
         return "";
@@ -300,6 +390,94 @@ public class ProductDetailsActivity extends AppCompatActivity implements IProduc
         public void destroyItem(ViewGroup container, int position, Object object) {
             container.removeView((LinearLayout) object);
         }
+    }
+
+
+    private void show3DView(boolean isShow) {
+
+        LinearLayout dLayout = (LinearLayout) findViewById(R.id.three_d_view);
+
+        if(isShow) {
+            DisplayMetrics displaymetrics = Resources.getSystem().getDisplayMetrics();
+            int windowHeight = displaymetrics.heightPixels;
+
+            Log.d(TAG, "windowHeight : " +  windowHeight);
+
+            mProductImageLayout.setVisibility(View.GONE);
+
+            mUnityPlayer.requestFocus();
+            int glesMode = mUnityPlayer.getSettings().getInt("gles_mode", 1);
+            boolean trueColor8888 = false;
+            mUnityPlayer.init(glesMode, trueColor8888);
+
+            ViewGroup.LayoutParams layoutParams = dLayout.getLayoutParams();
+            layoutParams.height = windowHeight - windowHeight/3;
+
+            dLayout.setVisibility(View.VISIBLE);
+            dLayout.addView(mUnityPlayer.getView(), 0, layoutParams);
+
+        }
+        else {
+            dLayout.setVisibility(View.GONE);
+            dLayout.removeView(mUnityPlayer.getView());
+            mProductImageLayout.setVisibility(View.VISIBLE);
+
+        }
+    }
+
+    private void takeScreenShotAndShare() {
+
+        Toast.makeText(this, "Taking Picture.", Toast.LENGTH_LONG).show();
+
+        File fileDir = AppUtil.getMainDirectoryName(this);
+
+        String screenshotFile = fileDir.getAbsolutePath() + "/test.png";
+        Log.d(TAG, "Screenshot Path :" + screenshotFile);
+        //Toast.makeText(this, "Screenshot : "  , Toast.LENGTH_SHORT).show();
+
+        mUnityPlayer.UnitySendMessage("FaceDisplay", "TakeScreenshot", screenshotFile); // path .png format
+        //  mUnityPlayer.UnitySendMessage("FaceDisplay","TakeScreenshot",null);
+
+        try {
+            Thread.sleep(2000); // wait 2 sec for unity image cpature
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        File file = new File(screenshotFile);
+
+        if(file.exists()) {
+            shareScreenshot(file);// share screenshot
+        }
+        else {
+            Log.d(TAG, "Screenshot file not available in memory");
+        }
+    }
+
+    /*private void takeScreenShotAndShare() {
+        // Take screen shot
+        Bitmap bitmap = AppUtil.getScreenShot(mThreeDLayout);
+
+        if(bitmap != null) {
+            File saveFile = AppUtil.getMainDirectoryName(this);//get the path to save screenshot
+            File file = AppUtil.store(bitmap, "screenshot.jpg", saveFile);//save the screenshot to selected path
+            shareScreenshot(file);// share screenshot
+        }
+
+    }*/
+
+    /*  Share Screenshot  */
+    private void shareScreenshot(File file) {
+        Toast.makeText(this, "Share Picture.", Toast.LENGTH_SHORT).show();
+
+        Uri uri = Uri.fromFile(file);//Convert file path into Uri for sharing
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.setType("image/*");
+        intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Tru2Spec 3D Try");
+       // intent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.sharing_text));
+        intent.putExtra(Intent.EXTRA_STREAM, uri);//pass uri here
+        startActivity(Intent.createChooser(intent, getString(R.string.share)));
     }
 
 }

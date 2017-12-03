@@ -29,4 +29,5 @@ public interface IDashboardView {
     void setMenuItems();
     void setProductList(List<Type> type);
     void setupViewpager(List<OfferHeader> offers);
+    void navigateToFavoriteActivity();
 }

@@ -17,6 +17,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,6 +41,7 @@ import com.tru2specs.android.dashboard.adapter.DashboardOffersPagerAdapter;
 import com.tru2specs.android.dashboard.adapter.DashboardVerticalRVAdapter;
 import com.tru2specs.android.dashboard.presenter.DashboardPresenter;
 import com.tru2specs.android.dashboard.view.IDashboardView;
+import com.tru2specs.android.favorite.FavoriteActivity;
 import com.tru2specs.android.login.LoginActivity;
 import com.tru2specs.android.manager.SessionManager;
 import com.tru2specs.android.menu.DashboardMenuPagerAdapter;
@@ -53,7 +55,9 @@ import com.tru2specs.android.productslist.ProductsListActivity;
 import com.tru2specs.android.profile.ProfileActivity;
 import com.tru2specs.android.search.SearchActivity;
 import com.tru2specs.android.signup.SignUpActivity;
+import com.tru2specs.android.storage.database.DatabaseManager;
 import com.tru2specs.android.store.StoreActivity;
+import com.tru2specs.android.util.BadgeView;
 import com.tru2specs.android.util.Constants;
 
 import java.util.ArrayList;
@@ -120,6 +124,12 @@ public class DashboardActivity extends BaseActivity
     @BindView(R.id.tab_indicator)
     TabLayout mIndicator;
 
+    private ImageView mImageViewCart;
+    private ImageView mImageViewFavorite;
+    private ImageView mImageViewSearch;
+    private BadgeView mCartCountBadge;
+    private BadgeView mFavCountBadge;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -156,6 +166,10 @@ public class DashboardActivity extends BaseActivity
         mMyOrders = (TextView) headerLayout.findViewById(R.id.txt_dashboard_my_orders);
         mLayoutBeforeLogin = (LinearLayout) findViewById(R.id.lin_before_login_options);
         mLayoutAfterLogin = (RelativeLayout) findViewById(R.id.rl_user_settings);
+        mImageViewCart = (ImageView)findViewById(R.id.img_bag);
+        mImageViewFavorite = (ImageView) findViewById(R.id.img_fav);
+        mImageViewSearch = (ImageView) findViewById(R.id.img_search);
+
 
 //        mIndicator = (CircleIndicator) findViewById(R.id.indicator);
         init();
@@ -223,6 +237,27 @@ public class DashboardActivity extends BaseActivity
             mLayoutBeforeLogin.setVisibility(View.VISIBLE);
 
         }
+
+        mImageViewCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToCartActivity();
+            }
+        });
+
+        mImageViewFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToFavoriteActivity();
+            }
+        });
+
+        mImageViewSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToSearchActivity();
+            }
+        });
 
         setBannerAdImage();
 
@@ -324,6 +359,12 @@ public class DashboardActivity extends BaseActivity
     @Override
     public void navigateToCartActivity() {
         Intent searchIntent = new Intent(DashboardActivity.this, CartActivity.class);
+        startActivity(searchIntent);
+    }
+
+    @Override
+    public void navigateToFavoriteActivity() {
+        Intent searchIntent = new Intent(DashboardActivity.this, FavoriteActivity.class);
         startActivity(searchIntent);
     }
 
@@ -575,6 +616,58 @@ public class DashboardActivity extends BaseActivity
         TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
         textView.setTextColor(color);
         snackbar.show();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        displayCartandFavCountBadge();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        if(mCartCountBadge != null) {
+            mCartCountBadge.setTargetView(null);
+            mCartCountBadge = null;
+        }
+        if(mFavCountBadge != null) {
+            mFavCountBadge.setTargetView(null);
+            mFavCountBadge = null;
+        }
+    }
+
+    // display Fav and Cart products counts in badge view
+    private void displayCartandFavCountBadge() {
+
+        if(mCartCountBadge == null) {
+            if (mImageViewCart != null) {
+                mCartCountBadge = new BadgeView(this);
+                mCartCountBadge.setTargetView(mImageViewCart);
+                mCartCountBadge.setBadgeGravity(Gravity.LEFT | Gravity.TOP);
+                mCartCountBadge.setBadgeMargin(0,4,0,0);
+            }
+        }
+
+        int cartCount = DatabaseManager.getInstance(this).getCartProductsCount();
+        if(cartCount != 0) {
+            mCartCountBadge.setBadgeCount(cartCount);
+        }
+
+        if(mFavCountBadge == null) {
+            if (mImageViewFavorite != null) {
+                mFavCountBadge = new BadgeView(this);
+                mFavCountBadge.setTargetView(mImageViewFavorite);
+                mFavCountBadge.setBadgeGravity(Gravity.LEFT | Gravity.TOP);
+                mFavCountBadge.setBadgeMargin(0,4,0,0);
+            }
+        }
+
+        int favCount = DatabaseManager.getInstance(this).getFavoriteProductsCount();
+        if(favCount != 0) {
+            mFavCountBadge.setBadgeCount(favCount);
+        }
     }
 
 }

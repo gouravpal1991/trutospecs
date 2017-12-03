@@ -171,8 +171,8 @@ public class AddressActivity extends BaseActivity implements IAddressView {
 
     @Override
     public void navigateToSavedAddresses() {
-        Intent intent = new Intent(AddressActivity.this,SavedAddressesActivity.class);
-        startActivity(intent);
+        /*Intent intent = new Intent(AddressActivity.this,SavedAddressesActivity.class);
+        startActivity(intent);*/
     }
 
     @Override

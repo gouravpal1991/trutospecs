@@ -1,6 +1,7 @@
 package com.tru2specs.android.cart.model;
 
 import com.tru2specs.android.cart.listener.OnCartItemsFetchListerner;
+import com.tru2specs.android.favorite.listener.OnFavItemsFetchListerner;
 import com.tru2specs.android.objects.request.CartRequest;
 import com.tru2specs.android.objects.responses.productlisting.Data;
 import com.tru2specs.android.objects.responses.productlisting.Product;
@@ -41,6 +42,32 @@ public class CartInteractor implements ICartInteractor {
             @Override
             public void onFailure(Call<ProductListingResponse> call, Throwable t) {
                 listerner.onFetchFailure(t.getMessage());
+            }
+        });
+    }
+
+    @Override
+    public void getFavProducts(final OnFavItemsFetchListerner listener, CartRequest request) {
+        Call<ProductListingResponse> responseCall = AppClient.getApiService().getCartItems(request);
+        responseCall.enqueue(new Callback<ProductListingResponse>() {
+            @Override
+            public void onResponse(Call<ProductListingResponse> call, Response<ProductListingResponse> response) {
+                if(response.code()== Constants.STATUS_CODE_SUCCESS) {
+                    int responseCode = Integer.valueOf(response.body().getResponseCode());
+                    if (responseCode == Constants.STATUS_CODE_SUCCESS) {
+                        Data data = response.body().getData();
+                        listener.onFetchSuccess((ArrayList<Product>) data.getProducts());
+                    } else if (responseCode == Constants.STATUS_CODE_UNAUTHORIZED) {
+                        listener.onFetchFailure(response.body().getErrorMessage());
+                    } else {
+                        listener.onFetchFailure(Constants.SOMETHING_WENT_WRONG_MSG);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ProductListingResponse> call, Throwable t) {
+                listener.onFetchFailure(t.getMessage());
             }
         });
     }

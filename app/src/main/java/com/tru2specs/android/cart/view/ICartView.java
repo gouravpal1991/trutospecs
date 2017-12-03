@@ -3,7 +3,6 @@ package com.tru2specs.android.cart.view;
 import com.tru2specs.android.objects.responses.productlisting.Product;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by palgour on 8/25/17.

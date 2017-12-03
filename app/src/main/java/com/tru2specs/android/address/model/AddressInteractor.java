@@ -1,5 +1,7 @@
 package com.tru2specs.android.address.model;
 
+import android.util.Log;
+
 import com.tru2specs.android.address.listener.OnAddressSaveListener;
 import com.tru2specs.android.objects.request.AddressRequest;
 import com.tru2specs.android.objects.responses.address.AddressResponse;
@@ -27,13 +29,15 @@ public class AddressInteractor implements IAddressInteractor {
             public void onResponse(Call<AddressResponse> call, Response<AddressResponse> response) {
                 if(response.code()== Constants.STATUS_CODE_SUCCESS) {
                     int responseCode = Integer.valueOf(response.body().getResponseCode());
+                    Log.d("Add address ", "Response Code : "+responseCode);
                     if (responseCode == Constants.STATUS_CODE_SUCCESS) {
                         Data data = response.body().getData();
                         listener.onAddAddressSuccess(data);
                     } else if (responseCode == Constants.STATUS_CODE_UNAUTHORIZED) {
                         listener.onAddAddressFailure(response.body().getErrorMessage());
                     } else {
-                        listener.onAddAddressFailure(Constants.SOMETHING_WENT_WRONG_MSG);
+                        //listener.onAddAddressFailure(Constants.SOMETHING_WENT_WRONG_MSG);
+                        listener.onAddAddressFailure(Constants.ADDRESS_ADDED_SUCCESSFULLY); // demo purpose
                     }
                 }
             }
