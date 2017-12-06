@@ -1,0 +1,18 @@
+{
+  "data": {
+    "lenses":[{
+      "lens_name":"Anti-Glare Lens",
+      "lens_brand_name":"British Optics",
+      "lens_brand_image":"",
+      "lens_desc":"Anti-Glare Lens\n1 year warranty\n1.56 Index\nSubmit power after checkout",
+      "price":"1500"
+    },
+      {
+        "lens_name":"Premium Anti-Glare Lens",
+        "lens_brand_name":"British Optics",
+        "lens_brand_image":"",
+        "lens_desc":"Scratch Resistant\nWater Repeliant\nAnti-Glare Lens\n1 year warranty\n1.56 Index\nSubmit power after checkout",
+        "price":"2000"
+      }]
+  }
+}

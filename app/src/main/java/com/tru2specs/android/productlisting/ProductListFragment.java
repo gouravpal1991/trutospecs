@@ -41,6 +41,7 @@ public class ProductListFragment extends Fragment {
         List<Products> productList = getArguments().getParcelableArrayList("ProductList");
         ProductRecyclerViewAdapter productAdapter = new ProductRecyclerViewAdapter(getActivity(), productList);
         mProductRecyclerView.setAdapter(productAdapter);
+        productAdapter.notifyDataSetChanged();
     }
 
 

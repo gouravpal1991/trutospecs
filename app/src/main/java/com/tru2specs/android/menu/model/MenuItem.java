@@ -52,18 +52,18 @@ public class MenuItem implements Parcelable {
 
     public static ArrayList<MenuItem> getStaticData() {
         ArrayList<DrawerMenu> menuItems = new ArrayList<>();
-        menuItems.add(new DrawerMenu("Home", DrawerMenu.STATIC_ITEM));
-        menuItems.add(new DrawerMenu("New Arrivals", DrawerMenu.STATIC_ITEM));
-        menuItems.add(new DrawerMenu("Hot Deals", DrawerMenu.STATIC_ITEM));
-        menuItems.add(new DrawerMenu("Sunglasses", DrawerMenu.STATIC_ITEM));
-        menuItems.add(new DrawerMenu("Eyeglasses", DrawerMenu.STATIC_ITEM));
-        menuItems.add(new DrawerMenu("Contact Lenses", DrawerMenu.STATIC_ITEM));
-        menuItems.add(new DrawerMenu("Stores", DrawerMenu.STATIC_ITEM));
-        menuItems.add(new DrawerMenu("Brands", DrawerMenu.STATIC_ITEM));
-        menuItems.add(new DrawerMenu("order tracking", DrawerMenu.STATIC_ITEM));
-        menuItems.add(new DrawerMenu("FAQ", DrawerMenu.STATIC_ITEM));
-        menuItems.add(new DrawerMenu("Privacy Policy", DrawerMenu.STATIC_ITEM));
-        menuItems.add(new DrawerMenu("About Tru2specs", DrawerMenu.STATIC_ITEM));
+        menuItems.add(new DrawerMenu(DrawerMenu.MENU_HOME, DrawerMenu.STATIC_ITEM));
+        menuItems.add(new DrawerMenu("New Arrivals", DrawerMenu.DYNAMIC_ITEM));
+        menuItems.add(new DrawerMenu("Hot Deals", DrawerMenu.DYNAMIC_ITEM));
+        menuItems.add(new DrawerMenu("Sunglasses", DrawerMenu.DYNAMIC_ITEM));
+        menuItems.add(new DrawerMenu("Eyeglasses", DrawerMenu.DYNAMIC_ITEM));
+        menuItems.add(new DrawerMenu("Contact Lenses", DrawerMenu.DYNAMIC_ITEM));
+        menuItems.add(new DrawerMenu(DrawerMenu.MENU_STORES, DrawerMenu.STATIC_ITEM));
+        menuItems.add(new DrawerMenu(DrawerMenu.MENU_BRANDS, DrawerMenu.STATIC_ITEM));
+        menuItems.add(new DrawerMenu(DrawerMenu.MENU_ORDER_TRACKING, DrawerMenu.STATIC_ITEM));
+        menuItems.add(new DrawerMenu(DrawerMenu.MENU_FAQ, DrawerMenu.STATIC_ITEM));
+        menuItems.add(new DrawerMenu(DrawerMenu.MENU_PRIVACY_POLICY, DrawerMenu.STATIC_ITEM));
+        menuItems.add(new DrawerMenu(DrawerMenu.MENU_ABOUT, DrawerMenu.STATIC_ITEM));
 
         MenuItem itemMen = new MenuItem("MEN", menuItems);
         MenuItem itemWomen = new MenuItem("WOMEN", menuItems);

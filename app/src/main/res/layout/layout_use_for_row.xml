@@ -2,22 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/padding_medium"
-    android:background="@color/white"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingLeft="@dimen/padding_medium"
+    android:paddingRight="@dimen/padding_medium"
+android:paddingTop="@dimen/padding_small"
+android:paddingBottom="@dimen/padding_small"
+    android:orientation="vertical"
+    android:id="@+id/lin_use_for_parent">
 
     <RelativeLayout
-
+        android:clickable="false"
+        android:focusable="false"
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
+            android:clickable="false"
+            android:focusable="false"
             android:id="@+id/img_use_for"
             android:layout_width="@dimen/use_for_width"
             android:layout_height="@dimen/use_for_width"
             android:src="@drawable/if_river_494761" />
 
         <LinearLayout
+            android:clickable="false"
+            android:focusable="false"
             android:layout_width="match_parent"
             android:layout_height="@dimen/use_for_width"
             android:layout_toRightOf="@+id/img_use_for"
@@ -25,33 +35,42 @@
             android:padding="@dimen/activity_horizontal_margin_half">
 
             <TextView
+                android:clickable="false"
+                android:focusable="false"
                 android:id="@+id/txt_use_for"
                 style="@style/NormalSmallTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="asdfasfsadfasfasdfsd"
+                tools:text="asdfasfsadfasfasdfsd"
                 android:textAllCaps="false"
+                android:maxLines="1"
                 android:textColor="@color/black" />
 
             <TextView
+                android:clickable="false"
+                android:focusable="false"
                 android:id="@+id/txt_use_desc_1"
                 style="@style/NormalSmallTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="asdfasfsadfasfasdfsd"
+                tools:text="asdfasfsadfasfasdfsd"
                 android:textAllCaps="false"
+                android:maxLines="1"
                 android:textColor="@color/black" />
 
             <TextView
+                android:clickable="false"
+                android:focusable="false"
                 android:id="@+id/txt_use_desc_2"
                 style="@style/NormalSmallTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="asdfasfsadfasfasdfsd"
+                tools:text="asdfasfsadfasfasdfsd"
                 android:textAllCaps="false"
+                android:maxLines="1"
                 android:textColor="@color/black" />
         </LinearLayout>
     </RelativeLayout>
 
-
+<!--<include layout="@layout/layout_seperator"/>-->
 </LinearLayout>

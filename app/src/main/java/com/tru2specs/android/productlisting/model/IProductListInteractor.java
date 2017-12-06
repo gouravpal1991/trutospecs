@@ -1,5 +1,6 @@
 package com.tru2specs.android.productlisting.model;
 
+import com.tru2specs.android.objects.request.filterrequest.FilterRequest;
 import com.tru2specs.android.productlisting.OnProductListListener;
 
 /**
@@ -8,4 +9,5 @@ import com.tru2specs.android.productlisting.OnProductListListener;
 
 public interface IProductListInteractor {
     void getProductListData(OnProductListListener listener);
+    void getProductListData(OnProductListListener listener, FilterRequest request);
 }

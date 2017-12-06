@@ -9,6 +9,13 @@ import android.os.Parcelable;
 
 public class DrawerMenu implements Parcelable {
 
+    public static final String MENU_HOME = "Home";
+    public static final String MENU_STORES = "Stores";
+    public static final String MENU_BRANDS = "Brands";
+    public static final String MENU_ORDER_TRACKING = "order tracking";
+    public static final String MENU_FAQ = "FAQ";
+    public static final String MENU_PRIVACY_POLICY = "Privacy Policy";
+    public static final String MENU_ABOUT = "About Tru2specs";
     private String drawerMenuItemName;
     // Type can only be static and dynamic
     // use enum here

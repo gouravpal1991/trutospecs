@@ -7,8 +7,10 @@ import com.tru2specs.android.objects.request.ProudctListingRequest;
 import com.tru2specs.android.objects.request.SavedAddressesRequest;
 import com.tru2specs.android.objects.request.SignUpRequest;
 import com.tru2specs.android.objects.request.UpdateUserRequest;
+import com.tru2specs.android.objects.request.filterrequest.FilterRequest;
 import com.tru2specs.android.objects.responses.address.AddressResponse;
 import com.tru2specs.android.objects.responses.dashboard.DashboardResponse;
+import com.tru2specs.android.objects.responses.filter.FilterResponse;
 import com.tru2specs.android.objects.responses.loginSignup.LoginSignUpResponse;
 import com.tru2specs.android.objects.responses.product.ProductResponse;
 import com.tru2specs.android.objects.responses.productlisting.ProductListingResponse;
@@ -62,6 +64,13 @@ public interface APIService {
 
     @POST("cart/get")
     Call<ProductListingResponse> getCartItems(@Body CartRequest request);
+
+    @POST("filter/get")
+    Call<ProductResponse> getFilterdData(@Body FilterRequest request);
+
+
+    @POST("product/getMaster")
+    Call<FilterResponse> getFilterdKeys();
 //    @GET("get_booking_types.php")
 //    Call<BookingTypeResponse> getBookingTypeAndProjects();
 //

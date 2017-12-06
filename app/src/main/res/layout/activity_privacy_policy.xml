@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_pre_login_toolbar" />
+
+        <include layout="@layout/layout_seperator" />
+
+        <TextView
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:padding="@dimen/margin_5"
+            android:id="@+id/txt_privacy_policy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:layout_margin="@dimen/activity_horizontal_margin_half"
+            android:background="@color/white"></TextView>
+
+    </LinearLayout>
+
+</RelativeLayout>

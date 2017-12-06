@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/padding_small"
+    android:layout_marginLeft="@dimen/padding_small"
+    android:layout_marginRight="@dimen/padding_small"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_horizontal_margin_half">
+
+        <TextView
+            android:id="@+id/txt_lens_brand_name"
+            style="@style/NormalSmallTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            tools:text="British Optics" />
+
+        <TextView
+            android:id="@+id/txt_lens_actual_amount"
+            style="@style/NormalSmallTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            tools:text="RS 2000" />
+
+        <TextView
+            android:id="@+id/txt_lens_name"
+            android:layout_below="@+id/txt_lens_brand_name"
+            android:layout_marginTop="@dimen/margin_top_10dp"
+            style="@style/NormalSmallTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            tools:text="British Optics" />
+
+        <TextView
+            android:id="@+id/txt_lens_desc"
+            android:layout_below="@+id/txt_lens_name"
+            android:layout_marginTop="@dimen/margin_top_10dp"
+            style="@style/NormalSmallTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:maxLines="10"
+            tools:text="British Optics" />
+
+<Button
+    android:layout_below="@+id/txt_lens_desc"
+    android:layout_alignParentRight="true"
+    android:id="@+id/btn_lens_buy_now"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/dark_button_start_color"
+    android:textColor="@color/white"
+    android:textStyle="bold"
+    android:text="@string/buy_now"/>
+
+    </RelativeLayout>
+</LinearLayout>

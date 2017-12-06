@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/lin_footer"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_pre_login_toolbar" />
+
+        <include layout="@layout/layout_seperator" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.RecyclerView
+
+                android:id="@+id/rv_filter_keys"
+                android:layout_width="@dimen/filter_width"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+            <View
+                android:layout_width="@dimen/seperator_height"
+                android:layout_height="match_parent"
+                android:background="@color/secondary_color" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_filter_values"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_5"></android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/lin_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/off_white"
+        android:orientation="horizontal"
+        android:padding="@dimen/activity_horizontal_margin_half">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="@string/reset_all" />
+
+        <Button
+            android:id="@+id/btn_apply_filter"
+            style="@style/DarkButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:text="@string/apply_filter" />
+    </RelativeLayout>
+    <include layout="@layout/layout_progress" />
+
+</RelativeLayout>
