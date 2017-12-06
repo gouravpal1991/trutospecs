@@ -11,12 +11,21 @@ import com.tru2specs.android.objects.responses.productlisting.ProductListingResp
 
 public interface IProducDetailsView {
     void showProgress();
+
     void hideProgress();
+
     void setToolbar();
+
     void onError(String msg);
+
     void onSuccess(Data response);
+
     void getProductDetails(Product product);
-void setProductDetails(Product product);
+
+    void setProductDetails(Product product);
+
     String getProductId();
+
+    void navigateToLensActivity();
 }
 

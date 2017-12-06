@@ -4,25 +4,25 @@
       "use_for":"Distance",
       "desc1":"Seesing things far away",
       "desc2":"(driving, signboard, hoardings etc.)",
-      "img":""
+      "img":"https://s3-us-east-2.amazonaws.com/othersimages/if_river_494761.png"
     },
       {
         "use_for":"Reading",
         "desc1":"Seesing things up close",
         "desc2":"(books, paper, stiching etc.)",
-        "img":""
+        "img":"https://s3-us-east-2.amazonaws.com/othersimages/if_common.png"
       },
       {
         "use_for":"Bifocal/Progressive",
         "desc1":"Distance & Reading",
         "desc2":"",
-        "img":""
+        "img":"https://s3-us-east-2.amazonaws.com/othersimages/if_alifashion.png"
       },
       {
         "use_for":"Zero Power",
         "desc1":"Protection from screen radiation/ riding/ fashion",
         "desc2":"",
-        "img":""
+        "img":"https://s3-us-east-2.amazonaws.com/othersimages/if_computer_103447.png"
       }]
   }
 }

@@ -6,6 +6,7 @@ import com.tru2specs.android.login.listerner.OnLoginListener;
 import com.tru2specs.android.login.model.LoginInteractor;
 import com.tru2specs.android.manager.SessionManager;
 import com.tru2specs.android.objects.request.LoginRequest;
+import com.tru2specs.android.objects.request.filterrequest.FilterRequest;
 import com.tru2specs.android.objects.responses.product.Data;
 import com.tru2specs.android.objects.responses.product.Products;
 import com.tru2specs.android.productlisting.OnProductListListener;
@@ -39,6 +40,11 @@ public class ProductListPresenter implements IProductListPresenter, OnProductLis
     }
 
     @Override
+    public void getProducts(FilterRequest request) {
+        mInteractor.getProductListData(this, request);
+    }
+
+    @Override
     public void doLogin() {
         HashMap<String, String> userCredentials = new SessionManager(mContext).getUserCredentials();
         LoginRequest request = new LoginRequest();
@@ -55,9 +61,9 @@ public class ProductListPresenter implements IProductListPresenter, OnProductLis
 
         mView.setProductList(productList);
 
-        if (data != null) {
-            mView.onSuccess(data);
-        }
+//        if (data != null) {
+//            mView.onSuccess(data);
+//        }
     }
 
     @Override

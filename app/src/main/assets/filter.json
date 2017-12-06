@@ -1,0 +1,110 @@
+{
+  "data": {
+    "filterItems": [
+      {
+        "key": "Brand",
+        "values": [
+          {
+            "name": "Carrera",
+            "available_qty": "10"
+          },
+          {
+            "name": "John Jacobs",
+            "available_qty": "10"
+          },
+          {
+            "name": "Vogue",
+            "available_qty": "10"
+          },
+          {
+            "name": "Vincent Chase",
+            "available_qty": "10"
+          },
+          {
+            "name": "Tommy Hilfiger",
+            "available_qty": "10"
+          },
+          {
+            "name": "Tag Heuer",
+            "available_qty": "10"
+          },
+          {
+            "name": "Ray-Ban",
+            "available_qty": "10"
+          },
+          {
+            "name": "Polaroid",
+            "available_qty": "10"
+          },
+          {
+            "name": "Oakley",
+            "available_qty": "10"
+          },
+          {
+            "name": "Nike",
+            "available_qty": "10"
+          }
+        ]
+      },
+      {
+        "key": "Product Type",
+        "values": [
+          {
+            "name": "CONTACT LENSES",
+            "available_qty": "10"
+          },
+          {
+            "name": "EYEGLASSES",
+            "available_qty": "10"
+          },
+          {
+            "name": "PRESCRIPTION SUNGLASSES",
+            "available_qty": "10"
+          },
+          {
+            "name": "SUNGLASSES",
+            "available_qty": "10"
+          }
+        ]
+      },
+      {
+        "key": "Frame Size",
+        "values": [
+          {
+            "name": "Frame Size",
+            "available_qty": "10"
+          },
+          {
+            "name": "Test Size",
+            "available_qty": "10"
+          }
+        ]
+      },
+      {
+        "key": "Frame Color",
+        "values": []
+      },
+      {
+        "key": "Weight Group",
+        "values": [
+          {
+            "name": "10-20 gm",
+            "available_qty": "10"
+          },
+          {
+            "name": "20-40 gm",
+            "available_qty": "10"
+          },
+          {
+            "name": "Less than 10 gm",
+            "available_qty": "10"
+          },
+          {
+            "name": "More than 40 gm",
+            "available_qty": "10"
+          }
+        ]
+      }
+    ]
+  }
+}

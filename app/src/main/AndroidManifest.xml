@@ -35,38 +35,33 @@
         <activity
             android:name=".login.LoginActivity"
             android:label="@string/app_name"
-            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".signup.SignUpActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-
         <activity android:name=".activity.ResetPasswordActivity" />
-
         <activity android:name=".productslist.ProductsListActivity" />
         <activity android:name=".address.SavedAddressesActivity" />
-
         <activity
             android:name=".basicinfo.BasicInfoActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-
-          <activity
-              android:name=".checkout.CheckoutActivity"
-              android:windowSoftInputMode="stateHidden|adjustResize"></activity>
-
+        <activity
+            android:name=".checkout.CheckoutActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".Test"
-            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".splash.SplashActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-         <activity
-             android:name=".splash.SplashActivity"
-             android:windowSoftInputMode="stateHidden|adjustResize">
-             <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
-
-                 <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
-         </activity>
-        <!--<activity
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+        <activity
             android:name=".checkout.CheckoutActivity"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
@@ -74,52 +69,53 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>-->
+        </activity>
+        -->
 
         <activity
             android:name=".productdetails.ProductDetailsActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize"
             android:noHistory="true"
-            android:process=":UnityKillsMe">
-            <meta-data android:name="productdetails.ProductDetailsActivity" android:value="true" />
-            <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="false" />
+            android:process=":UnityKillsMe"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <meta-data
+                android:name="productdetails.ProductDetailsActivity"
+                android:value="true" />
+            <meta-data
+                android:name="unityplayer.ForwardNativeEventsToDalvik"
+                android:value="false" />
         </activity>
-
         <activity
             android:name=".dashboard.DashboardActivity"
             android:label="@string/title_home"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".store.StoreActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme">
-
-        </activity>
-
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".productlisting.ProductListingActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-
-        </activity>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".threed.ThreeDTryOnActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-        </activity>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".search.SearchActivity"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".cart.CartActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".profile.ProfileActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".address.AddressActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".favorite.FavoriteActivity"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".lens.LensesActivity"
+            android:windowSoftInputMode="adjustResize" />
 
         <!-- receiver to check internet connection -->
         <receiver
@@ -128,10 +124,8 @@
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
-
             </intent-filter>
         </receiver>
-
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -147,7 +141,6 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -168,8 +161,9 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
-
+        <activity android:name=".faq.FAQActivity" />
+        <activity android:name=".filter.FilterActivity" />
+        <activity android:name=".privacy.PrivacyPolicy"></activity>
     </application>
 
 </manifest>

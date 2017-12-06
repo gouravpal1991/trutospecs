@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +32,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.Gson;
 import com.tru2specs.android.R;
 import com.tru2specs.android.cart.CartActivity;
+import com.tru2specs.android.lens.LensesActivity;
 import com.tru2specs.android.objects.responses.productlisting.Data;
 import com.tru2specs.android.objects.responses.productlisting.Product;
 import com.tru2specs.android.objects.responses.useFor.Item;
@@ -55,9 +57,10 @@ import butterknife.ButterKnife;
  * Created by PB00471065 on 11/7/2017.
  */
 
-public class ProductDetailsActivity extends UnityPlayerActivity implements IProducDetailsView {
+public class ProductDetailsActivity extends UnityPlayerActivity implements IProducDetailsView,  View.OnClickListener {
 
     private static final String TAG = ProductDetailsActivity.class.getSimpleName();
+    private static final String PRODUCT_TYPE_SUNGLASSES = "EYEGLASSES";
     public static final String KEY_PRODUCT_ID = "product_id";
     @BindView(R.id.txt_actual_amount)
     TextView mTxtActualAmount;
@@ -83,6 +86,7 @@ public class ProductDetailsActivity extends UnityPlayerActivity implements IProd
     private ArrayList<String> mImages;
     private Button mAddToCart;
     private ImageView mImageViewFavorite;
+    private RelativeLayout mTransparent;
 
     @BindView(R.id.toggleSwitch3D)
     Switch mToggleSwitch3D;
@@ -95,6 +99,7 @@ public class ProductDetailsActivity extends UnityPlayerActivity implements IProd
 
     @BindView(R.id.three_d_view)
     LinearLayout mThreeDLayout;
+    private Product mProduct;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -113,6 +118,7 @@ public class ProductDetailsActivity extends UnityPlayerActivity implements IProd
         mOff = (TextView) findViewById(R.id.txt_offer);
         mAddToCart = (Button) findViewById(R.id.btn_add_to_cart);
         mImageViewFavorite = (ImageView) findViewById(R.id.img_fav);
+        mTransparent = (RelativeLayout) findViewById(R.id.rl_transparent);
 
         //for line over text
         mTxtActualAmount.setPaintFlags(mTxtActualAmount.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
@@ -123,18 +129,8 @@ public class ProductDetailsActivity extends UnityPlayerActivity implements IProd
             }
         });
 //        setScreenTitle();
-        mBuyNow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateToCheckout();
-            }
-        });
-        mAddToCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateToCart();
-            }
-        });
+        mBuyNow.setOnClickListener(this);
+        mAddToCart.setOnClickListener(this);
 
         mImageViewFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,7 +162,8 @@ public class ProductDetailsActivity extends UnityPlayerActivity implements IProd
 
         mPresenter = new ProductDetailsPresenter(ProductDetailsActivity.this, this);
         mPresenter.attemptGetProductDetails();
-
+        mTransparent.setOnClickListener(this);
+        hideUseForView();
         AppUtil.getScreenHeight();
     }
 
@@ -235,10 +232,11 @@ public class ProductDetailsActivity extends UnityPlayerActivity implements IProd
 	
 
     private void chooseUseFor(){
-        UseForResponse useForResponse = new Gson().fromJson(Helper.loadJSONFromAsset(ProductDetailsActivity.this, "products.json"), UseForResponse.class);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_products_list);
+        //TODO:: replace use_for json with API response
+        UseForResponse useForResponse = new Gson().fromJson(Helper.loadJSONFromAsset(ProductDetailsActivity.this, "use_for.json"), UseForResponse.class);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_use_for);
         List<Item> items = useForResponse.getData().getItems();
-        UseForAdapter mAdapter = new UseForAdapter(ProductDetailsActivity.this, items);
+        UseForAdapter mAdapter = new UseForAdapter(ProductDetailsActivity.this, items, this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -325,7 +323,8 @@ public class ProductDetailsActivity extends UnityPlayerActivity implements IProd
     @Override
     public void onSuccess(Data response) {
         if (response != null && response.getProducts().size() > 0) {
-            setProductDetails(response.getProducts().get(0));
+            mProduct = response.getProducts().get(0);
+            setProductDetails(mProduct);
             return;
         }
         Toast.makeText(ProductDetailsActivity.this, "Product not found.", Toast.LENGTH_SHORT).show();
@@ -348,6 +347,13 @@ public class ProductDetailsActivity extends UnityPlayerActivity implements IProd
             return productId;
         }
         return "";
+    }
+
+    @Override
+    public void navigateToLensActivity() {
+        Intent intent = new Intent(ProductDetailsActivity.this, LensesActivity.class);
+        intent.putExtra(LensesActivity.KEY_PRODUCT_ID, getProductId());
+        startActivity(intent);
     }
 
 
@@ -478,6 +484,38 @@ public class ProductDetailsActivity extends UnityPlayerActivity implements IProd
        // intent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.sharing_text));
         intent.putExtra(Intent.EXTRA_STREAM, uri);//pass uri here
         startActivity(Intent.createChooser(intent, getString(R.string.share)));
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.rl_transparent:
+                hideUseForView();
+                break;
+            case R.id.btn_buy_now:
+                if(mProduct.getProductType().equals(PRODUCT_TYPE_SUNGLASSES)){
+                    showUseFor();
+                    chooseUseFor();
+                }else{
+                    navigateToCheckout();
+                }
+            case R.id.btn_add_to_cart:
+                if(mProduct.getProductType().equals(PRODUCT_TYPE_SUNGLASSES)){
+                    showUseFor();
+                    chooseUseFor();
+                }else{
+                    navigateToCart();
+                }
+
+        }
+    }
+
+    private void hideUseForView() {
+        mTransparent.setVisibility(View.GONE);
+    }
+
+    private void showUseFor() {
+        mTransparent.setVisibility(View.VISIBLE);
     }
 
 }
