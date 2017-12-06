@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_5"
+    android:background="@color/white"
+    android:elevation="@dimen/margin_5"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_horizontal_margin_half">
+
+        <ImageView
+            android:id="@+id/image_product"
+            android:layout_width="@dimen/cart_item_width"
+            android:layout_height="@dimen/dashboard_item_height"
+            android:src="@drawable/bear"
+            android:background="@drawable/bordered_rectangle"
+            android:layout_marginRight="@dimen/margin_5"
+            android:scaleType="fitCenter"/>
+
+        <RelativeLayout
+            android:id="@+id/product_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/image_product">
+
+            <TextView
+                android:id="@+id/txt_product_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:focusable="false"
+                android:maxLines="3"
+                android:textAllCaps="true"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="@color/black"
+                tools:text="product name here asdfafafasfasfasdfsafasfasfasfasfasfasffsafsfsadfsdfasfasfsafasfasf" />
+
+            <TextView
+                android:id="@+id/txt_actual_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_20"
+                android:layout_marginRight="@dimen/margin_20"
+                tools:text="RS 2000"
+                android:textAllCaps="true"
+                style="@style/NormalSmallTextView"
+                android:layout_marginTop="@dimen/activity_horizontal_margin_half"
+                android:layout_below="@id/txt_product_name"
+                android:layout_toLeftOf="@+id/txt_discounted_amount"/>
+
+
+            <TextView
+                android:id="@+id/txt_discounted_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="RS 1499"
+                android:textAllCaps="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/activity_horizontal_margin_half"
+                android:layout_below="@id/txt_product_name"
+                style="@style/NormalSmallTextView" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+    <include layout="@layout/layout_seperator" />
+
+</LinearLayout>

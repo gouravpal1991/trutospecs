@@ -12,9 +12,22 @@
     tools:context=".search.SearchActivity"
     tools:showIn="@layout/activity_search">
 
+    <TextView
+        android:id="@+id/textSearchResultCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_margin="@dimen/margin_5"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:text="No Results Found"
+        />
+
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/list_item"
+        android:id="@+id/recyclerViewSearch"
+        android:layout_below="@id/textSearchResultCount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none"/>
+
+    <include layout="@layout/layout_progress" />
 </RelativeLayout>

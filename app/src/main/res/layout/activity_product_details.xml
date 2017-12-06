@@ -162,6 +162,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:rating="5"
+                        android:visibility="gone"
                         android:theme="@style/RatingBarStyle" />
 
                     <TextView
@@ -170,6 +171,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="@dimen/margin_top_10dp"
+                        android:visibility="gone"
                         android:text="173 ratings &amp; 129 reviews" />
                 </LinearLayout>
             </LinearLayout>
@@ -266,5 +268,6 @@
                     android:textAllCaps="true"/>
             </LinearLayout>
         </LinearLayout>
+
     </ScrollView>
 </LinearLayout>

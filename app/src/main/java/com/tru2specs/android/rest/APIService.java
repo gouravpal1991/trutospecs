@@ -5,6 +5,7 @@ import com.tru2specs.android.objects.request.CartRequest;
 import com.tru2specs.android.objects.request.LoginRequest;
 import com.tru2specs.android.objects.request.ProudctListingRequest;
 import com.tru2specs.android.objects.request.SavedAddressesRequest;
+import com.tru2specs.android.objects.request.SearchRequest;
 import com.tru2specs.android.objects.request.SignUpRequest;
 import com.tru2specs.android.objects.request.UpdateUserRequest;
 import com.tru2specs.android.objects.responses.address.AddressResponse;
@@ -14,6 +15,7 @@ import com.tru2specs.android.objects.responses.product.ProductResponse;
 import com.tru2specs.android.objects.responses.productlisting.ProductListingResponse;
 import com.tru2specs.android.objects.responses.savedaddresses.Address;
 import com.tru2specs.android.objects.responses.savedaddresses.SavedAddressesResponse;
+import com.tru2specs.android.objects.responses.search.SearchResponse;
 import com.tru2specs.android.objects.responses.store.StoreListResponse;
 
 import retrofit2.Call;
@@ -62,6 +64,11 @@ public interface APIService {
 
     @POST("cart/get")
     Call<ProductListingResponse> getCartItems(@Body CartRequest request);
+
+    @POST("search/get")
+    Call<SearchResponse> getSearchedProducts(@Body SearchRequest request);
+
+
 //    @GET("get_booking_types.php")
 //    Call<BookingTypeResponse> getBookingTypeAndProjects();
 //
