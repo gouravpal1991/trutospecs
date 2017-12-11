@@ -77,8 +77,8 @@ public class DashboardMenuPagerFragment extends Fragment {
         unbinder.unbind();
     }
 
-    private void setCategoriesView(MenuItem categories) {
-        mAdapter = new DashboardMenuListAdapter(getActivity(), categories.getMenuItems());
+    private void setCategoriesView(MenuItem menuItem) {
+        mAdapter = new DashboardMenuListAdapter(getActivity(), menuItem);
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
         mRvCategory.setLayoutManager(mLayoutManager);

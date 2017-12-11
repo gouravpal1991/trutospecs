@@ -1,5 +1,7 @@
 package com.tru2specs.android.productlisting;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -10,15 +12,19 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.tru2specs.android.R;
+import com.tru2specs.android.filter.FilterActivity;
+import com.tru2specs.android.objects.request.filterrequest.FilterRequest;
 import com.tru2specs.android.objects.responses.product.Data;
 import com.tru2specs.android.objects.responses.product.Products;
 import com.tru2specs.android.productlisting.view.IProductListingView;
 import com.tru2specs.android.productslist.presenter.ProductListPresenter;
 import com.tru2specs.android.productslist.view.IProductListView;
 
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
@@ -31,6 +37,8 @@ import butterknife.ButterKnife;
 public class ProductListingActivity extends AppCompatActivity implements IProductListingView,
         View.OnClickListener, OnCheckedChangeListener, IProductListView {
 
+    private static final int REQUEST_CODE_FILTER = 1;
+    public static final String KEY_FILTER_ITEMS = "filter_items";
     public static String KEY_CATEGORY_FOR = "category_for";
     public static String KEY_CATEGORIES_LIST = "category_list";
 
@@ -57,32 +65,43 @@ public class ProductListingActivity extends AppCompatActivity implements IProduc
 
     @BindView(R.id.sc_3d_try_on)
     SwitchCompat m3dTrySwitch;
-	@BindView(R.id.productImageLayout)
+    @BindView(R.id.productImageLayout)
     LinearLayout mLinearLayoutProductImage;
 
-	@BindView(R.id.rl_three_d_view)
-	LinearLayout mThreeDLayout;
+    @BindView(R.id.rl_three_d_view)
+    LinearLayout mThreeDLayout;
     private ProductListPresenter mPresenter;
-
+    String title = "tru2Specs";
+    private Bundle mBundle;
+    private TextView mFilter;
+private RelativeLayout mNoProducts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_listing);
         ButterKnife.bind(this);
+        mFilter = (TextView) findViewById(R.id.txt_filter);
         mPresenter = new ProductListPresenter(this, getApplicationContext());
         mPresenter.getProductData();
-        setScreenDetails();
+        mFilter.setOnClickListener(this);
         init();
+        setScreenDetails();
+        mNoProducts = (RelativeLayout)findViewById(R.id.rl_no_product);
+        mNoProducts.setVisibility(View.GONE);
     }
 
     private void init() {
+        mBundle = getIntent().getExtras();
+        if (mBundle != null && mBundle.containsKey(KEY_CATEGORY_FOR)) {
+            title = mBundle.getString(KEY_CATEGORY_FOR);
+        }
         setScreenTitle();
         m3dTrySwitch.setOnCheckedChangeListener(this);
     }
 
     private void setScreenTitle() {
         mScreenTitle.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
-        mScreenTitle.setText("MEN");
+        mScreenTitle.setText(title);
 
     }
 
@@ -106,7 +125,7 @@ public class ProductListingActivity extends AppCompatActivity implements IProduc
         mListingTitle.setVisibility(View.VISIBLE);
 
         mBack.setOnClickListener(this);
-        mListingTitle.setText("men");
+        mListingTitle.setText(title);
 //        mScreenTitle.setText("men");
 
     }
@@ -132,7 +151,15 @@ public class ProductListingActivity extends AppCompatActivity implements IProduc
             case R.id.img_back:
                 finish();
                 break;
+            case R.id.txt_filter:
+                navigateToFilterActivity();
+                break;
         }
+    }
+
+    private void navigateToFilterActivity() {
+        Intent intent = new Intent(ProductListingActivity.this, FilterActivity.class);
+        startActivityForResult(intent, REQUEST_CODE_FILTER);
     }
 
     @Override
@@ -142,8 +169,7 @@ public class ProductListingActivity extends AppCompatActivity implements IProduc
                 if (isChecked) {
                     showThree3dView(true);
                     return;
-                }
-                else {
+                } else {
                     showThree3dView(false);
                 }
 //                mTryOnView.setVisibility(View.GONE);
@@ -153,10 +179,10 @@ public class ProductListingActivity extends AppCompatActivity implements IProduc
     }
 
     private void showThree3dView(boolean isShow) {
-       
-	    LinearLayout dLayout = (LinearLayout) findViewById(R.id.rl_three_d_view);
 
-        if(isShow) {
+        LinearLayout dLayout = (LinearLayout) findViewById(R.id.rl_three_d_view);
+
+        if (isShow) {
             mLinearLayoutProductImage.setVisibility(View.GONE);
 
          /*   mUnityPlayer.requestFocus();
@@ -168,8 +194,7 @@ public class ProductListingActivity extends AppCompatActivity implements IProduc
             dLayout.setVisibility(View.VISIBLE);
             dLayout.addView(mUnityPlayer.getView(), 0, layoutParams);
 */
-        }
-        else {
+        } else {
             dLayout.setVisibility(View.GONE);
             mLinearLayoutProductImage.setVisibility(View.VISIBLE);
 
@@ -188,9 +213,15 @@ public class ProductListingActivity extends AppCompatActivity implements IProduc
 
     @Override
     public void setProductList(List<Products> productList) {
-        viewPagerAdapter = new ProductListingViewPagerAdapter(getSupportFragmentManager(), productList);
-        mProductListViewpager.setAdapter(viewPagerAdapter);
-        tabLayoutProductList.setupWithViewPager(mProductListViewpager);
+        mNoProducts.setVisibility(View.GONE);
+        if(productList !=null && productList.size()>0) {
+            viewPagerAdapter = new ProductListingViewPagerAdapter(getSupportFragmentManager(), productList);
+            mProductListViewpager.setAdapter(viewPagerAdapter);
+            viewPagerAdapter.notifyDataSetChanged();
+            tabLayoutProductList.setupWithViewPager(mProductListViewpager);
+        }else{
+            mNoProducts.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -201,5 +232,17 @@ public class ProductListingActivity extends AppCompatActivity implements IProduc
     @Override
     public void onSuccess(Data data) {
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_FILTER) {
+            if (resultCode == Activity.RESULT_OK) {
+                FilterRequest request = data.getParcelableExtra(KEY_FILTER_ITEMS);
+                if (request != null && request.getFilterItems().size() > 0) {
+                    mPresenter.getProducts(request);
+                }
+            }
+        }
     }
 }

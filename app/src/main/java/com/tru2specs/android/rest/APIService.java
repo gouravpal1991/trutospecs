@@ -8,8 +8,10 @@ import com.tru2specs.android.objects.request.SavedAddressesRequest;
 import com.tru2specs.android.objects.request.SearchRequest;
 import com.tru2specs.android.objects.request.SignUpRequest;
 import com.tru2specs.android.objects.request.UpdateUserRequest;
+import com.tru2specs.android.objects.request.filterrequest.FilterRequest;
 import com.tru2specs.android.objects.responses.address.AddressResponse;
 import com.tru2specs.android.objects.responses.dashboard.DashboardResponse;
+import com.tru2specs.android.objects.responses.filter.FilterResponse;
 import com.tru2specs.android.objects.responses.loginSignup.LoginSignUpResponse;
 import com.tru2specs.android.objects.responses.product.ProductResponse;
 import com.tru2specs.android.objects.responses.productlisting.ProductListingResponse;
@@ -20,7 +22,6 @@ import com.tru2specs.android.objects.responses.store.StoreListResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 /**
@@ -68,6 +69,11 @@ public interface APIService {
     @POST("search/get")
     Call<SearchResponse> getSearchedProducts(@Body SearchRequest request);
 
+    @POST("filter/get")
+    Call<ProductResponse> getFilterdData(@Body FilterRequest request);
+
+    @POST("product/getMaster")
+    Call<FilterResponse> getFilterdKeys();
 
 //    @GET("get_booking_types.php")
 //    Call<BookingTypeResponse> getBookingTypeAndProjects();

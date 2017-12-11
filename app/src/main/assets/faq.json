@@ -1,0 +1,29 @@
+{
+  "data": {
+    "faqs":[{
+      "id":"1",
+      "question":"Ques 1. I’m not sure about the size and fit of the frames.",
+      "answer":"Ans 1. At Tru2Specs, we offer glasses in 3 sizes – small, medium, and large. Click the ‘Frame Size’ link at the bottom of the page to know your size. ~80-90% of our customers find a medium size frame to be the best fit."
+    },
+      {
+        "id":"2",
+        "question":"Ques 2. What if I buy glasses & they don’t fit me? What if the lenses aren’t right ?",
+        "answer":"Ans 2. Don’t worry! It is our responsibility to get the perfect pair of glasses. In the rare circumstance that your glasses don’t fit properly, we make it extremely easy for you to exchange or return the frames, with lenses. If you face any difficulty, just write to us on support@Tru2Specs.com We have a 14 day, no-questions asked return policy and provide instant money back or store credit on return."
+      },
+      {
+        "id":"3",
+        "question":"Ques 3. Will the glasses have my prescription?",
+        "answer":"Ans 3. You can buy glasses fitted with your prescription or even the frames standalone. We custom-make glasses with single vision, bifocal, or progressive prescriptions across all powers. Our glasses are ~50% cheaper than market average, since we bypass intermediaries – and best of all, we charge the same price, regardless of your power!"
+      },
+      {
+        "id":"4",
+        "question":"Ques 4. Will Tru2Specs be able to make my complex power?",
+        "answer":"Ans 4. At Tru2Specs, we stock all powers – simple and complex. The unique robotic technology used in our lab ensures that the most complex powers are fitted perfectly, ensuring 100% error-free glasses. Our 10 lakh+ customers can vouch for the precision with which we make the eyeglasses!"
+      },
+      {
+        "id":"5",
+        "question":"Ques 5. Where do I submit my eye power details?",
+        "answer":"Ans 5. You can submit your power details after you complete your purchase. We offer multiple options to provide your prescription to us – upload a picture, enter it online, email us (power@Tru2Specs.com) or write to us on support@Tru2Specs.com"
+      }]
+  }
+}
