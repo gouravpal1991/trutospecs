@@ -30,6 +30,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.Gson;
 import com.tru2specs.android.R;
+import com.tru2specs.android.activity.TruSpecUnityPlayerActivity;
 import com.tru2specs.android.cart.CartActivity;
 import com.tru2specs.android.objects.responses.productlisting.Data;
 import com.tru2specs.android.objects.responses.productlisting.Product;
@@ -42,7 +43,6 @@ import com.tru2specs.android.storage.database.DatabaseManager;
 import com.tru2specs.android.util.AppUtil;
 import com.tru2specs.android.util.Constants;
 import com.tru2specs.android.util.Helper;
-import com.unity3d.player.UnityPlayerActivity;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -55,7 +55,7 @@ import butterknife.ButterKnife;
  * Created by PB00471065 on 11/7/2017.
  */
 
-public class ProductDetailsActivity extends UnityPlayerActivity implements IProducDetailsView {
+public class ProductDetailsActivity extends TruSpecUnityPlayerActivity implements IProducDetailsView {
 
     private static final String TAG = ProductDetailsActivity.class.getSimpleName();
     public static final String KEY_PRODUCT_ID = "product_id";
@@ -393,7 +393,7 @@ public class ProductDetailsActivity extends UnityPlayerActivity implements IProd
     }
 
 
-    private void show3DView(boolean isShow) {
+   /* private void show3DView(boolean isShow) {
 
         LinearLayout dLayout = (LinearLayout) findViewById(R.id.three_d_view);
 
@@ -424,6 +424,42 @@ public class ProductDetailsActivity extends UnityPlayerActivity implements IProd
 
         }
     }
+*/
+
+    private void show3DView(boolean isShow) {
+
+        LinearLayout dLayout = (LinearLayout) findViewById(R.id.three_d_view);
+
+        if(isShow) {
+            DisplayMetrics displaymetrics = Resources.getSystem().getDisplayMetrics();
+            int windowHeight = displaymetrics.heightPixels;
+
+            Log.d(TAG, "windowHeight : " +  windowHeight);
+
+            mProductImageLayout.setVisibility(View.GONE);
+
+            getUnityPlayer().requestFocus();
+            int glesMode = getUnityPlayer().getSettings().getInt("gles_mode", 1);
+            boolean trueColor8888 = false;
+            getUnityPlayer().init(glesMode, trueColor8888);
+
+            ViewGroup.LayoutParams layoutParams = dLayout.getLayoutParams();
+            layoutParams.height = windowHeight - windowHeight/3;
+
+            dLayout.setVisibility(View.VISIBLE);
+            dLayout.addView(getUnityPlayer().getView(), 0, layoutParams);
+
+            //getUnityPlayer().resume();
+
+        }
+        else {
+            dLayout.setVisibility(View.GONE);
+            dLayout.removeView(getUnityPlayer().getView());
+            mProductImageLayout.setVisibility(View.VISIBLE);
+        }
+    }
+
+
 
     private void takeScreenShotAndShare() {
 
@@ -435,8 +471,9 @@ public class ProductDetailsActivity extends UnityPlayerActivity implements IProd
         Log.d(TAG, "Screenshot Path :" + screenshotFile);
         //Toast.makeText(this, "Screenshot : "  , Toast.LENGTH_SHORT).show();
 
-        mUnityPlayer.UnitySendMessage("FaceDisplay", "TakeScreenshot", screenshotFile); // path .png format
-        //  mUnityPlayer.UnitySendMessage("FaceDisplay","TakeScreenshot",null);
+        //mUnityPlayer.UnitySendMessage("FaceDisplay", "TakeScreenshot", screenshotFile); // path .png format
+
+        getUnityPlayer().UnitySendMessage("FaceDisplay", "TakeScreenshot", screenshotFile);
 
         try {
             Thread.sleep(2000); // wait 2 sec for unity image cpature
